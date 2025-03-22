@@ -17,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
         // Llevar a MainActivity
         Handler(mainLooper).postDelayed({
             startActivity(
-                Intent(this, MainActivity::class.java)
+                Intent(this, LoginActivity::class.java)
             );
             finish();
         }, SPLASH_TIME_OUT);

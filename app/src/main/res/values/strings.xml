@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Beat Nation</string>
     <string name="app_version">V - 1.0</string>
+    <string name="icon_img_alt">Icono princial - Beat Nation</string>
+
+    <!-- Strings para el login -->
+    <string name="enterWithYourAccountLabel">Ingresa con tu cuenta</string>
+    <string name="inputUserEmailPlaceholder">Correo electrónico</string>
+    <string name="inputPasswordPlaceholder">Contraseña</string>
+    <string name="btnLoginLabel">Iniciar sesión</string>
+    <string name="resetPasswordLabel">¿Olvidaste tu contraseña?</string>
+    <string name="noUserLabel">¿No tienes usuario?, Registrate aquí:</string>
+    <string name="btnRegisterLabel">Registrate</string>
 </resources>
