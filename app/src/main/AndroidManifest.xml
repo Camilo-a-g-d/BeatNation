@@ -21,6 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".PreRegisterActivity"/>
+        <activity android:name=".RegisterFansActivity"/>
         <activity android:name=".MainActivity"/>
         <meta-data
             android:name="preloaded_fonts"
