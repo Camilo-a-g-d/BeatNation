@@ -1,7 +1,9 @@
 <resources>
+    <!-- Strings por defecto -->
     <string name="app_name">Beat Nation</string>
     <string name="app_version">V - 1.0</string>
     <string name="icon_img_alt">Icono princial - Beat Nation</string>
+    <string name="continueLabel">Continuar</string>
 
     <!-- Strings para el login -->
     <string name="enterWithYourAccountLabel">Ingresa con tu cuenta</string>
@@ -11,4 +13,18 @@
     <string name="resetPasswordLabel">¿Olvidaste tu contraseña?</string>
     <string name="noUserLabel">¿No tienes usuario?, Registrate aquí:</string>
     <string name="btnRegisterLabel">Registrate</string>
+
+    <!-- Strings para la actividade de preregistro -->
+    <string name="firstOfAll_Label">Primero lo primero</string>
+    <string name="maniTextPreRegisterLabel">Para poder registrarte se requiere una validación, en la cual la aplicación pueda ayudarte a determinar que utilidad le darás.</string>
+    <string name="selectOptionTypeUserLabel">Selecciona una opción</string>
+    <string-array name="userTypeOptions">
+        <item>Fan (Comprador)</item>
+        <item>Comerciante (Vendedor)</item>
+        <item>Artista (Vendedor)</item>
+    </string-array>
+    
+    <!-- Strings para los formularios de registro -->
+    <string name="createYourAccountLabel">Crea tu cuenta</string>
+    <string name="haveAlreadyAccount">¿Ya tienes usuario?, Ingresa aquí:</string>
 </resources>

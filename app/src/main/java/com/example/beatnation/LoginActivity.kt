@@ -33,9 +33,10 @@ class LoginActivity : AppCompatActivity() {
         btnLogin = findViewById(R.id.btnLogin);
 
         btnLogin.setOnClickListener {
-            Toast
-                .makeText(this, "Ir al activiy central", Toast.LENGTH_SHORT)
-                .show();
+            startActivity(
+                Intent(this, PreRegisterActivity::class.java)
+            )
+            finish();
             // if(validateForm()) {
             //     validateUser();
             // }
