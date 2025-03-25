@@ -24,6 +24,7 @@
         <activity android:name=".LoginActivity"/>
         <activity android:name=".PreRegisterActivity"/>
         <activity android:name=".RegisterFansActivity"/>
+        <activity android:name=".RegisterTypeIndustryActivity"/>
         <activity android:name=".MainActivity"/>
         <meta-data
             android:name="preloaded_fonts"

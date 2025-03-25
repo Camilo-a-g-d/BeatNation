@@ -16,6 +16,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var inputTextEmail: EditText;
     private lateinit var inputTextPassword: EditText;
     private lateinit var btnLogin: Button;
+    private lateinit var btnGoToPreRegister: Button;
 
     // Propiedades para manejar información de forma local
     private lateinit var sharedPreferences: SharedPreferences;
@@ -31,15 +32,19 @@ class LoginActivity : AppCompatActivity() {
         inputTextEmail = findViewById(R.id.inputUserEmailLogin);
         inputTextPassword = findViewById(R.id.inputPasswordLogin);
         btnLogin = findViewById(R.id.btnLogin);
+        btnGoToPreRegister = findViewById(R.id.btnGoToPreRegister);
 
         btnLogin.setOnClickListener {
+            // if(validateForm()) {
+            //     validateUser();
+            // }
+        };
+
+        btnGoToPreRegister.setOnClickListener {
             startActivity(
                 Intent(this, PreRegisterActivity::class.java)
             )
             finish();
-            // if(validateForm()) {
-            //     validateUser();
-            // }
         };
     }
 

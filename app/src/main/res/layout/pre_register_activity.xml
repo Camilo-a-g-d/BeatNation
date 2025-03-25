@@ -80,8 +80,10 @@
     <Spinner
         android:id="@+id/spinnerSelectTypeUser"
         android:layout_width="310dp"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:layout_marginTop="20dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="@+id/containerMainView"
         app:layout_constraintStart_toStartOf="@+id/containerMainView"
@@ -97,4 +99,15 @@
         app:layout_constraintEnd_toEndOf="@+id/containerMainView"
         app:layout_constraintStart_toStartOf="@+id/containerMainView"
         app:layout_constraintTop_toBottomOf="@+id/spinnerSelectTypeUser" />
+
+    <Button
+        android:id="@+id/btnGoToRegisterIndustry"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/continueLabel"
+        style="@style/btnSecondary"
+        app:layout_constraintEnd_toEndOf="@+id/containerMainView"
+        app:layout_constraintStart_toStartOf="@+id/containerMainView"
+        app:layout_constraintTop_toBottomOf="@+id/containerMainView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

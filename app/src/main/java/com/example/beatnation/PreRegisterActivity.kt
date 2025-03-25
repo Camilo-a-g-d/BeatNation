@@ -10,7 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 
 class PreRegisterActivity : AppCompatActivity() {
     private lateinit var spinnerSelectTypeUser: Spinner;
-    private lateinit var btnGoToRegisterFan: Button;
+    private lateinit var btnGoToRegisterFanTEMP: Button;
+    private lateinit var btnGoToRegisterIndustryTEMP: Button;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,10 +29,18 @@ class PreRegisterActivity : AppCompatActivity() {
 //            spinnerSelectTypeUser.adapter = adapter;
 //        }
 
-        btnGoToRegisterFan = findViewById(R.id.btnGoToRegister);
-        btnGoToRegisterFan.setOnClickListener({
+        btnGoToRegisterFanTEMP = findViewById(R.id.btnGoToRegister);
+        btnGoToRegisterFanTEMP.setOnClickListener({
             startActivity(
                 Intent(this, RegisterFansActivity::class.java)
+            );
+            finish();
+        });
+
+        btnGoToRegisterIndustryTEMP = findViewById(R.id.btnGoToRegisterIndustry);
+        btnGoToRegisterIndustryTEMP.setOnClickListener({
+            startActivity(
+                Intent(this, RegisterTypeIndustryActivity::class.java)
             );
             finish();
         });
