@@ -5,12 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/RegisterFansActivity"
+    android:id="@+id/RegisterTypeIndustryActivity"
     android:background="@color/main_color"
-    tools:context=".RegisterFansActivity">
+    tools:context=".RegisterTypeIndustryActivity">
 
     <ImageView
-        android:id="@+id/imgAppRegisterFans"
+        android:id="@+id/imgAppRegisterTypeIndustry"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="45dp"
@@ -33,10 +33,39 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgAppRegisterFans" />
+        app:layout_constraintTop_toBottomOf="@+id/imgAppRegisterTypeIndustry" />
+
+    <TextView
+        android:id="@+id/typeIndustryLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="80dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/typeIndustry"
+        android:textColor="@color/king_blue"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texVewCreateYourAccount" />
+
+    <Spinner
+        android:id="@+id/spinnerTypeUserRegister"
+        android:layout_width="310dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="15dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:spinnerMode="dropdown"
+        style="@style/btnPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/typeIndustryLabel" />
 
     <EditText
-        android:id="@+id/inputUserEmailFan"
+        android:id="@+id/inputUserEmailIndustry"
         style="@style/editTextRounded"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -46,10 +75,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texVewCreateYourAccount" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerTypeUserRegister" />
 
     <EditText
-        android:id="@+id/inputUserPasswordFan"
+        android:id="@+id/inputUserPasswordIndustry"
         style="@style/editTextRounded"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -59,10 +88,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputUserEmailFan" />
+        app:layout_constraintTop_toBottomOf="@+id/inputUserEmailIndustry" />
 
     <Button
-        android:id="@+id/btnRegisterFan"
+        android:id="@+id/btnRegisterIndustry"
         style="@style/btnPrimary"
         android:layout_width="315dp"
         android:layout_height="wrap_content"
@@ -70,18 +99,18 @@
         android:text="@string/btnRegisterLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputUserPasswordFan" />
+        app:layout_constraintTop_toBottomOf="@+id/inputUserPasswordIndustry" />
 
     <View
-        android:id="@+id/lineDividerViewRegisterFan"
+        android:id="@+id/lineDividerViewRegisterIndustry"
         android:layout_marginTop="20dp"
         style="@style/lineDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegisterFan" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRegisterIndustry" />
 
     <TextView
-        android:id="@+id/haveAlreadyAccountRegisterFan"
+        android:id="@+id/haveAlreadyAccountRegisterIndustry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -91,10 +120,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lineDividerViewRegisterFan" />
+        app:layout_constraintTop_toBottomOf="@+id/lineDividerViewRegisterIndustry" />
 
     <Button
-        android:id="@+id/btnGoToLoginFromRegisterFan"
+        android:id="@+id/btnGoToLoginFromRegisterIndustry"
         style="@style/btnSecondary"
         android:layout_width="315dp"
         android:layout_height="wrap_content"
@@ -103,6 +132,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/haveAlreadyAccountRegisterFan"
+        app:layout_constraintTop_toBottomOf="@+id/haveAlreadyAccountRegisterIndustry"
         app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,4 +27,9 @@
     <!-- Strings para los formularios de registro -->
     <string name="createYourAccountLabel">Crea tu cuenta</string>
     <string name="haveAlreadyAccount">¿Ya tienes usuario?, Ingresa aquí:</string>
+    <string name="typeIndustry">¿A qué industria perteneces?</string>
+    <string-array name="userTypeIndustryOptions">
+        <item>Comerciante</item>
+        <item>Artista</item>
+    </string-array>
 </resources>
