@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    android:id="@+id/ViewProfileFansActivity"
+    tools:context=".activities.ViewProfileFanActivity">
+
+    <ImageView
+        android:id="@+id/imgAppViewProfileFan"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/logo_beat_nation"
+        android:contentDescription="@string/icon_img_alt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/appNameLabelViewProfileFan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="42dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/app_name"
+        android:textColor="@color/king_blue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imgAppViewProfileFan"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgShoppingCartInVewProfileFan"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="28dp"
+        app:srcCompat="@drawable/carrito_compras"
+        android:contentDescription="@string/shopping_cart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/appNameLabelViewProfileFan"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/customYourProfileInViewProfileFan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/customYourProfileLabel"
+        android:textAlignment="center"
+        android:textColor="@color/king_blue"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgAppViewProfileFan" />
+
+    <ImageView
+        android:id="@+id/imgUserProfile"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customYourProfileInViewProfileFan"
+        app:srcCompat="@drawable/avatar" />
+
+    <EditText
+        android:id="@+id/UserNameInputViewProfileFan"
+        style="@style/editTextRounded"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="@string/UserNameLabels"
+        android:enabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgUserProfile" />
+
+    <EditText
+        android:id="@+id/UserLastnameViewProfileFan"
+        style="@style/editTextRounded"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/UserLastnameLabels"
+        android:inputType="text"
+        android:enabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserNameInputViewProfileFan" />
+
+    <EditText
+        android:id="@+id/UserEmailViewProfileFan"
+        style="@style/editTextRounded"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/UserEmailLabels"
+        android:inputType="textEmailAddress"
+        android:enabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserLastnameViewProfileFan" />
+
+    <EditText
+        android:id="@+id/UserPhoneNumberViewProfileFan"
+        style="@style/editTextRounded"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/UserPhoneNumberLabels"
+        android:inputType="phone"
+        android:enabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserEmailViewProfileFan" />
+
+    <EditText
+        android:id="@+id/UserCountryViewProfileFan"
+        style="@style/editTextRounded"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/UserCountryLabels"
+        android:inputType="text"
+        android:enabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserPhoneNumberViewProfileFan" />
+
+    <EditText
+        android:id="@+id/UserCityViewProfileFan"
+        style="@style/editTextRounded"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/UserCityLabels"
+        android:inputType="text"
+        android:enabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserCountryViewProfileFan" />
+
+    <Button
+        android:id="@+id/btnContinueCustomProfileFan"
+        style="@style/btnPrimaryRounded"
+        android:layout_width="315dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/editLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserCityViewProfileFan" />
+</androidx.constraintlayout.widget.ConstraintLayout>

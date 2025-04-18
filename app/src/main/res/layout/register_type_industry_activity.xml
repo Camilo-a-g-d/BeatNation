@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/RegisterTypeIndustryActivity"
     android:background="@color/main_color"
-    tools:context=".RegisterTypeIndustryActivity">
+    tools:context=".activities.RegisterTypeIndustryActivity">
 
     <ImageView
         android:id="@+id/imgAppRegisterTypeIndustry"
@@ -52,14 +52,14 @@
         app:layout_constraintTop_toBottomOf="@+id/texVewCreateYourAccount" />
 
     <Spinner
-        android:id="@+id/spinnerTypeUserRegister"
+        android:id="@+id/spinnerTypeIndustry"
         android:layout_width="310dp"
         android:layout_height="45dp"
         android:layout_marginTop="15dp"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:spinnerMode="dropdown"
-        style="@style/btnPrimary"
+        android:background="@drawable/spinner_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/typeIndustryLabel" />
@@ -75,7 +75,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerTypeUserRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerTypeIndustry" />
 
     <EditText
         android:id="@+id/inputUserPasswordIndustry"

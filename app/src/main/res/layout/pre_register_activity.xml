@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/PreRegisterActivity"
     android:background="@color/main_color"
-    tools:context=".PreRegisterActivity">
+    tools:context=".activities.PreRegisterActivity">
 
     <ImageView
         android:id="@+id/imgAppPreRegister"
@@ -85,6 +85,7 @@
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:spinnerMode="dropdown"
+        android:background="@drawable/spinner_background"
         app:layout_constraintEnd_toEndOf="@+id/containerMainView"
         app:layout_constraintStart_toStartOf="@+id/containerMainView"
         app:layout_constraintTop_toBottomOf="@+id/mainTextRegisterLabel" />
@@ -99,15 +100,4 @@
         app:layout_constraintEnd_toEndOf="@+id/containerMainView"
         app:layout_constraintStart_toStartOf="@+id/containerMainView"
         app:layout_constraintTop_toBottomOf="@+id/spinnerSelectTypeUser" />
-
-    <Button
-        android:id="@+id/btnGoToRegisterIndustry"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/continueLabel"
-        style="@style/btnSecondary"
-        app:layout_constraintEnd_toEndOf="@+id/containerMainView"
-        app:layout_constraintStart_toStartOf="@+id/containerMainView"
-        app:layout_constraintTop_toBottomOf="@+id/containerMainView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,10 +1,11 @@
-package com.example.beatnation
+package com.example.beatnation.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.beatnation.R
 
 class SplashActivity : AppCompatActivity() {
     private val SPLASH_TIME_OUT: Long = 1850;

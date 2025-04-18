@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/RegisterFansActivity"
     android:background="@color/main_color"
-    tools:context=".RegisterFansActivity">
+    tools:context=".activities.RegisterFansActivity">
 
     <ImageView
         android:id="@+id/imgAppRegisterFans"

@@ -4,6 +4,11 @@
     <string name="app_version">V - 1.0</string>
     <string name="icon_img_alt">Icono princial - Beat Nation</string>
     <string name="continueLabel">Continuar</string>
+    <string name="shopping_cart">Carrito de compras</string>
+    <string name="editLabel">Editar</string>
+    <string name="saveLabel">Guardar</string>
+    <string name="templateUserImgDesc">Imagen de referencia de usuario</string>
+    <string name="templateUserName">Nombre de usuario</string>
 
     <!-- Strings para el login -->
     <string name="enterWithYourAccountLabel">Ingresa con tu cuenta</string>
@@ -20,8 +25,7 @@
     <string name="selectOptionTypeUserLabel">Selecciona una opción</string>
     <string-array name="userTypeOptions">
         <item>Fan (Comprador)</item>
-        <item>Comerciante (Vendedor)</item>
-        <item>Artista (Vendedor)</item>
+        <item>Industria (Vendedor)</item>
     </string-array>
     
     <!-- Strings para los formularios de registro -->
@@ -32,4 +36,31 @@
         <item>Comerciante</item>
         <item>Artista</item>
     </string-array>
+
+    <!-- Strings para la gestión del perfil de usuario -->
+    <string name="customYourProfileLabel">Personaliza tu perfil:</string>
+    <string name="UserNameLabels">Nombre</string>
+    <string name="UserLastnameLabels">Apellidos</string>
+    <string name="UserEmailLabels">Correo eletrónico</string>
+    <string name="UserPhoneNumberLabels">Celular</string>
+    <string name="UserCountryLabels">País</string>
+    <string name="UserCityLabels">Ciudad</string>
+
+    <!-- Strings para el menú y la navegación de la app -->
+    <string name="open_drawer">Menú abierto</string>
+    <string name="close_drawer">Menú cerrado</string>
+    <string name="homeLabelOptionMenu">Inicio</string>
+    <string name="profileLabelOptionMenu">Perfil</string>
+    
+    <!-- Strings para le home fragment -->
+    <string name="exploreYourFavoriteGenres">Explora tus generos favoritos</string>
+    <string name="shortDescFatoriteGenres">Sabemos que algunas cosas están revueltas con otras, por eso explora tus géneros favoritos aqui: </string>
+    <string name="popLabel">Pop</string>
+    <string name="rapLabel">Hip-hoo / Rap</string>
+    <string name="rockLabel">Rock</string>
+    <string name="edmLabel">EDM (Electronic Dance Music)</string>
+    <string name="reggaetonLabel">Reggaetón / Música urbana</string>
+    <string name="kpopLabel">K-Pop</string>
+    <string name="seeMoreLabel">...</string>
+    <string name="seeMoreDesc">Ver más</string>
 </resources>

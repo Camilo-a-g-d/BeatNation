@@ -1,4 +1,4 @@
-package com.example.beatnation
+package com.example.beatnation.activities
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.beatnation.R
 
 class LoginActivity : AppCompatActivity() {
     // Propiedades del formulario
@@ -35,6 +36,12 @@ class LoginActivity : AppCompatActivity() {
         btnGoToPreRegister = findViewById(R.id.btnGoToPreRegister);
 
         btnLogin.setOnClickListener {
+            startActivity(
+                Intent(
+                    this, MainActivity::class.java
+                )
+            );
+            finish();
             // if(validateForm()) {
             //     validateUser();
             // }
