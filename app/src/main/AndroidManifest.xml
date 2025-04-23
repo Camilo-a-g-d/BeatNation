@@ -13,7 +13,7 @@
         android:theme="@style/Theme.BeatNation"
         tools:targetApi="31">
         <activity
-            android:name=".SplashActivity"
+            android:name=".activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".activities.LoginActivity"/>
+        <activity android:name=".activities.PreRegisterActivity"/>
+        <activity android:name=".activities.RegisterFansActivity"/>
+        <activity android:name=".activities.RegisterTypeIndustryActivity"/>
+        <activity android:name=".activities.ViewProfileFanActivity"/>
+        <activity android:name=".activities.MainRegisterActivity"/>
+        <activity android:name=".activities.MainActivity"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
