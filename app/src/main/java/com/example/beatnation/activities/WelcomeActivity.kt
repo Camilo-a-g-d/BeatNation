@@ -1,13 +1,23 @@
 package com.example.beatnation.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.beatnation.R
 
 class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_welcome)
+
+        Log.d("WelcomeActivity", "onCreate: Layout cargado correctamente")
+    }
+
+    fun goToContentIntro(view: View?) {
+        startActivity(Intent(this, ContentIntroActivity::class.java))
+        finish()
     }
 
     fun gotToLogin(view: View?) {

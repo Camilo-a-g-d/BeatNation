@@ -21,6 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.WelcomeActivity" />
+        <activity android:name=".activities.ContentIntroActivity" />
+        <activity android:name=".activities.SatisfactionIntroActivity" />
+        <activity android:name=".activities.FinalIntroActivity" />
+        <activity android:name=".activities.JoinUsActivity" />
         <activity android:name=".activities.LoginActivity"/>
         <activity android:name=".activities.PreRegisterActivity"/>
         <activity android:name=".activities.RegisterFansActivity"/>
