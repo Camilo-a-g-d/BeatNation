@@ -11,6 +11,7 @@
         android:layout_height="0dp"
         android:layout_weight="0.65"
         android:scaleType="centerCrop"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/image__30_" />
 
     <!-- Texto y botón -->
@@ -27,7 +28,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingBottom="32dp"
-            android:text="Comencemos esta aventura contigo, dale al siguiente botón"
+            android:text="@string/finalMainLabel"
             android:textColor="#1C1C1C"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -39,7 +40,7 @@
             android:onClick="goToLogin"
             android:paddingStart="32dp"
             android:paddingEnd="32dp"
-            android:text="Comencemos con el Beat"
+            android:text="@string/btnNextFinal"
             android:textColor="@android:color/white" />
     </LinearLayout>
 </LinearLayout>

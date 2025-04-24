@@ -11,37 +11,30 @@
         android:gravity="center"
         android:padding="32dp">
 
-        <!-- Logo/Icono -->
-
-        <!-- Nombre -->
-
-        <!-- Título -->
-
-        <!-- Placeholder login providers -->
-
         <ImageView
             android:layout_marginTop="75dp"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:contentDescription="Logo"
+            android:contentDescription="@string/app_name"
             android:src="@drawable/logo_beat_nation" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="BeatNation"
+            android:text="@string/app_name"
             android:textColor="#1C1C1C"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="283dp"
-            android:layout_height="125dp"
+            android:layout_height="150dp"
             android:layout_marginTop="48dp"
             android:gravity="left"
+            android:padding="2dp"
             android:lineSpacingExtra="4dp"
-            android:text="Únete\na\nNosotros"
+            android:text="@string/joinUsLabel"
             android:textColor="#1C1C1C"
             android:textSize="34sp"
             android:textStyle="bold" />
@@ -53,7 +46,7 @@
             android:background="@drawable/btn_secondary_style"
             android:enabled="false"
             android:padding="12dp"
-            android:text="Mas Opciones de Inicio de Sesión pronto"
+            android:text="@string/moreLoginOptionLabel"
             android:textColor="@color/ic_launcher_background"
             android:textStyle="bold" />
 
@@ -65,7 +58,7 @@
             android:background="@drawable/btn_primary_style"
             android:onClick="goToLogin"
             android:padding="12dp"
-            android:text="Inicia Sesión"
+            android:text="@string/btnLoginLabel"
             android:textColor="@android:color/white" />
 
         <!-- Registro -->
@@ -73,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="¿No tienes Cuenta?"
+            android:text="@string/noUserLabel"
             android:textColor="#1C1C1C"
             android:textSize="14sp" />
 
@@ -84,7 +77,7 @@
             android:background="@drawable/btn_primary_style"
             android:onClick="goToRegister"
             android:padding="12dp"
-            android:text="Regístrate"
+            android:text="@string/btnRegisterLabel"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="14sp" />

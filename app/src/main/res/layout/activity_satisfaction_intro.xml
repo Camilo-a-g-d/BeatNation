@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingBottom="32dp"
-            android:text="Tu satisfacción es nuestra prioridad número 1"
+            android:text="@string/satisfactionMainLabel"
             android:textColor="#1C1C1C"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -37,7 +37,7 @@
             android:onClick="goToNext"
             android:paddingStart="32dp"
             android:paddingEnd="32dp"
-            android:text="Siguiente"
+            android:text="@string/nextLabel"
             android:textColor="@android:color/white" />
     </LinearLayout>
 </LinearLayout>

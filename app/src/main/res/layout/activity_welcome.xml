@@ -55,7 +55,7 @@
             android:gravity="center"
             android:lineSpacingExtra="4dp"
             android:paddingBottom="16dp"
-            android:text="👋\nBienvenid@ a:\nBeatNation"
+            android:text="@string/welcomeMainLabel"
             android:textColor="@android:color/white"
             android:textSize="26sp"
             android:textStyle="bold" />
@@ -66,7 +66,7 @@
             android:layout_height="74dp"
             android:gravity="center"
             android:paddingBottom="32dp"
-            android:text="Donde la música y el comercio se encuentran."
+            android:text="@string/welcomeDescLabel"
             android:textColor="@android:color/white"
             android:textSize="14sp" />
 
@@ -81,7 +81,7 @@
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
             android:onClick="goToContentIntro"
-            android:text="Comencemos"
+            android:text="@string/startLabel"
             android:textColor="#000000" />
 
     </LinearLayout>

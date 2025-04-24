@@ -4,11 +4,31 @@
     <string name="app_version">V - 1.0</string>
     <string name="icon_img_alt">Icono princial - Beat Nation</string>
     <string name="continueLabel">Continuar</string>
+    <string name="nextLabel">Siguiente</string>
+    <string name="startLabel">Comencemos</string>
     <string name="shopping_cart">Carrito de compras</string>
     <string name="editLabel">Editar</string>
     <string name="saveLabel">Guardar</string>
     <string name="templateUserImgDesc">Imagen de referencia de usuario</string>
     <string name="templateUserName">Nombre de usuario</string>
+
+    <!-- Strings para activity_join_us -->
+    <string name="joinUsLabel">Únete\na\nNosotros</string>
+    <string name="moreLoginOptionLabel">Más opciones de inicio de sesión pronto</string>
+
+    <!-- Strings para activity_content_intro -->
+    <string name="introMainLabel">Los mejores contenidos de tus artistas favoritos, aquí en un solo lugar</string>
+
+    <!-- Strings para activity_final_intro -->
+    <string name="finalMainLabel">Comencemos esta aventura contigo, dale al siguiente botón</string>
+    <string name="btnNextFinal">Comencemos con el Beat</string>
+
+    <!-- Strings para activity_satisfaction_intro -->
+    <string name="satisfactionMainLabel">Tu satisfacción es nuestra prioridad número 1</string>
+
+    <!-- Strings para activity_welcome -->
+    <string name="welcomeMainLabel">👋\nBienvenid@ a:\nBeatNation</string>
+    <string name="welcomeDescLabel">Donde la música y el comercio se encuentran</string>
 
     <!-- Strings para el login -->
     <string name="enterWithYourAccountLabel">Ingresa con tu cuenta</string>
