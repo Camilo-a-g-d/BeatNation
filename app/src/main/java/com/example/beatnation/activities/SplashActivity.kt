@@ -8,49 +8,41 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.beatnation.R
 
 class SplashActivity : AppCompatActivity() {
-    private val SPLASH_TIME_OUT: Long = 1850;
+
+    private val SPLASH_TIME_OUT: Long = 1850
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.splash_activity)
 
-        setContentView(R.layout.splash_activity);
-
-        // Llevar a MainActivity
         Handler(mainLooper).postDelayed({
-            startActivity(
-                Intent(this, LoginActivity::class.java)
-            );
-            finish();
-        }, SPLASH_TIME_OUT);
+            startActivity(Intent(this, WelcomeActivity::class.java))
+            finish()
+        }, SPLASH_TIME_OUT)
     }
 
     override fun onStart() {
         super.onStart()
-
-        Log.d("SplashActiviy", "onStart: SplashActivity está en segundo plano");
+        Log.d("SplashActivity", "onStart: SplashActivity está en primer plano")
     }
 
     override fun onResume() {
         super.onResume()
-
-        Log.d("SplashActiviy", "onResume: Entro en onResume");
-    }
-
-    override fun onStop() {
-        super.onStop()
-
-        Log.d("SplashActiviy", "onStop: Entro en onStop");
+        Log.d("SplashActivity", "onResume: Entro en onResume")
     }
 
     override fun onPause() {
         super.onPause()
+        Log.d("SplashActivity", "onPause: Entro en onPause")
+    }
 
-        Log.d("SplashActiviy", "onPause: Entro en onPause");
+    override fun onStop() {
+        super.onStop()
+        Log.d("SplashActivity", "onStop: Entro en onStop")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-
-        Log.d("SplashActiviy", "onDestroy: Entro en onDestroy");
+        Log.d("SplashActivity", "onDestroy: Entro en onDestroy")
     }
 }
