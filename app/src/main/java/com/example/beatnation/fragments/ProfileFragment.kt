@@ -1,11 +1,10 @@
-package com.example.beatnation.activities
+package com.example.beatnation.fragments
 
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -13,10 +12,15 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity.MODE_PRIVATE
+import androidx.fragment.app.Fragment
 import com.example.beatnation.R
 
-class MainRegisterActivity : AppCompatActivity() {
+class ProfileFragment : Fragment() {
+    // Propiedades generales
+    private lateinit var sharedPreferences: SharedPreferences;
+
+    // Propiedades para el manejo del formulario
     private lateinit var userName: EditText;
     private lateinit var userLastname: EditText;
     private lateinit var userEmail: EditText;
@@ -29,71 +33,49 @@ class MainRegisterActivity : AppCompatActivity() {
     private lateinit var userNameArtist: EditText;
     private lateinit var spinnerTypeMuscialGenre: Spinner;
     private lateinit var userArtistBiography: EditText;
-    private lateinit var sharedPreferences: SharedPreferences;
     private lateinit var typeInstrustyUserView: TextView
     private lateinit var moreInfoLabel: TextView;
-    private lateinit var btnRegisterNewUser: Button;
+    private lateinit var btnEditProfile: Button;
     private var typeGenreSelected = "";
     private var typeGenreIndexSelected = 0;
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setContentView(R.layout.main_register_activity);
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.profile_fragment, container, false);
 
         //Inicializar propiedades
-        userName = findViewById(R.id.UserNameInputMainRegisterActivity);
-        userLastname = findViewById(R.id.UserLastnameMainRegisterActivity);
-        userEmail = findViewById(R.id.UserEmailMainRegisterActivity);
-        userPhoneNumber = findViewById(R.id.UserPhoneNumberMainRegisterActivity);
-        userCountry = findViewById(R.id.UserCountryMainRegisterActivity);
-        userCity = findViewById(R.id.UserCityMainRegisterActivity);
-        userStoreName = findViewById(R.id.UserStoreNameMainRegisterActivity);
-        userStoreNit = findViewById(R.id.UserStoreNitMainRegisterActivity);
-        userStoreAddress = findViewById(R.id.UserStoreAddressMainRegisterActivity);
-        userNameArtist = findViewById(R.id.UserNameArtistMainRegisterActivity);
-        spinnerTypeMuscialGenre = findViewById(R.id.spinnerTypeMuscialGenre);
-        userArtistBiography = findViewById(R.id.UserArtistBiographyMainRegisterActivity);
-        typeInstrustyUserView = findViewById(R.id.typeInstrustyUser);
-        moreInfoLabel = findViewById(R.id.moreInfoLabelRegister);
-        btnRegisterNewUser = findViewById(R.id.btnContinueMainRegisterActivity);
-        sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
+        userName = view.findViewById(R.id.UserNameInputProfileFragment);
+        userLastname = view.findViewById(R.id.UserLastnameProfileFragment);
+        userEmail = view.findViewById(R.id.UserEmailProfileFragment);
+        userPhoneNumber = view.findViewById(R.id.UserPhoneNumberProfileFragment);
+        userCountry = view.findViewById(R.id.UserCountryProfileFragment);
+        userCity = view.findViewById(R.id.UserCityProfileFragment);
+        userStoreName = view.findViewById(R.id.UserStoreNameProfileFragment);
+        userStoreNit = view.findViewById(R.id.UserStoreNitProfileFragment);
+        userStoreAddress = view.findViewById(R.id.UserStoreAddressProfileFragment);
+        userNameArtist = view.findViewById(R.id.UserNameArtistProfileFragment);
+        spinnerTypeMuscialGenre = view.findViewById(R.id.spinnerTypeMuscialGenreProfileFragment);
+        userArtistBiography = view.findViewById(R.id.UserArtistBiographyProfileFragment);
+        typeInstrustyUserView = view.findViewById(R.id.typeInstrustyUserProfileFragment);
+        moreInfoLabel = view.findViewById(R.id.moreInfoLabelRegisterProfileFragment);
+        btnEditProfile = view.findViewById(R.id.btnContinueProfileFragment);
+        sharedPreferences = this.requireContext().getSharedPreferences("userInfo", MODE_PRIVATE);
         val typeUser = sharedPreferences.getString("typeUser", "");
         val typeIndsutryUser = sharedPreferences.getString("typeIndustryUser", "");
 
-        // Mostrar el email pre registrado
+        // Mostrar información del usuario
+        userName.setText(sharedPreferences.getString("userName", ""));
+        userLastname.setText(sharedPreferences.getString("userLastname", ""));
+        userLastname.setText(sharedPreferences.getString("userLastname", ""));
         userEmail.setText(sharedPreferences.getString("userEmail", ""));
-
-        // Configurar selector de tipo de género musical
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.UserTypeMuscialGenre,
-            R.layout.spinner_item_selected
-        ).also { adapter ->
-            adapter.setDropDownViewResource(R.layout.spinner_dropdown_items);
-            spinnerTypeMuscialGenre.adapter = adapter;
-        }
-
-        // Manejador del Spinner de los géneros musicales
-        spinnerTypeMuscialGenre.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                typeGenreIndexSelected = position;
-
-                if (position == 0) {
-                    Toast
-                        .makeText(this@MainRegisterActivity, R.string.noItemSelecedValid, Toast.LENGTH_LONG)
-                        .show();
-                } else {
-                    typeGenreSelected = parent.getItemAtPosition(position).toString();
-
-                    Toast
-                        .makeText(this@MainRegisterActivity, "Genero seleccionado: " + typeGenreSelected, Toast.LENGTH_SHORT)
-                        .show();
-                }
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {}
-        }
+        userPhoneNumber.setText(sharedPreferences.getString("userPhoneNumber", ""));
+        userCountry.setText(sharedPreferences.getString("userCountry", ""));
+        userCity.setText(sharedPreferences.getString("userCity", ""));
+        userCity.setText(sharedPreferences.getString("userCity", ""));
+        typeGenreSelected = sharedPreferences.getString("userGenreArtist", "").toString();
 
         if(typeUser.equals("Fan")) {
             // Ocultar los campos para los usuarios compradores
@@ -116,6 +98,10 @@ class MainRegisterActivity : AppCompatActivity() {
                 userStoreNit.visibility = View.VISIBLE;
                 userStoreAddress.visibility = View.VISIBLE;
 
+                userStoreName.setText(sharedPreferences.getString("userStoreName", ""));
+                userStoreNit.setText(sharedPreferences.getString("userStoreNit", ""));
+                userStoreAddress.setText(sharedPreferences.getString("userStoreAddress", ""));
+
                 // Ocultar los campos del artista
                 userNameArtist.visibility = View.GONE;
                 spinnerTypeMuscialGenre.visibility = View.GONE;
@@ -126,6 +112,9 @@ class MainRegisterActivity : AppCompatActivity() {
                 spinnerTypeMuscialGenre.visibility = View.VISIBLE;
                 userArtistBiography.visibility = View.VISIBLE;
 
+                userNameArtist.setText(sharedPreferences.getString("userNameArtist", ""));
+                userArtistBiography.setText(sharedPreferences.getString("userArtistBiography", ""));
+
                 // Ocultar los campos del comerciante
                 userStoreName.visibility = View.GONE;
                 userStoreNit.visibility = View.GONE;
@@ -133,11 +122,53 @@ class MainRegisterActivity : AppCompatActivity() {
             }
         }
 
-        btnRegisterNewUser.setOnClickListener {
+        // Configurar selector de tipo de género musical
+        ArrayAdapter.createFromResource(
+            this.requireContext(),
+            R.array.UserTypeMuscialGenre,
+            R.layout.spinner_item_selected
+        ).also { adapter ->
+            adapter.setDropDownViewResource(R.layout.spinner_dropdown_items);
+            spinnerTypeMuscialGenre.adapter = adapter;
+        }
+
+        // Manejador del Spinner de los géneros musicales
+        spinnerTypeMuscialGenre.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                typeGenreIndexSelected = position;
+
+                if (position == 0) {
+                    Toast
+                        .makeText(this@ProfileFragment.requireContext(), R.string.noItemSelecedValid, Toast.LENGTH_LONG)
+                        .show();
+                } else {
+                    typeGenreSelected = parent.getItemAtPosition(position).toString();
+
+                    Toast
+                        .makeText(this@ProfileFragment.requireContext(), "Genero seleccionado: " + typeGenreSelected, Toast.LENGTH_SHORT)
+                        .show();
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {}
+        }
+
+        // Establecer el genero si hay
+        if(typeGenreSelected != "") {
+            val genreArray = resources.getStringArray(R.array.UserTypeMuscialGenre);
+            val index = genreArray.indexOf(typeGenreSelected);
+            if (index >= 0) {
+                spinnerTypeMuscialGenre.setSelection(index);
+            }
+        }
+
+        btnEditProfile.setOnClickListener {
             if(validateForm()) {
                 saveNewUser();
             }
         }
+
+        return view;
     }
 
     private fun validateForm(): Boolean {
@@ -154,7 +185,7 @@ class MainRegisterActivity : AppCompatActivity() {
 
         if(userNameValue.isEmpty()) {
             Toast
-                .makeText(this, "Debes ingresar tu nombre para continuar", Toast.LENGTH_SHORT)
+                .makeText(this@ProfileFragment.requireContext(), "Debes ingresar tu nombre para continuar", Toast.LENGTH_SHORT)
                 .show();
 
             return false;
@@ -162,7 +193,7 @@ class MainRegisterActivity : AppCompatActivity() {
 
         if(userLastnameValue.isEmpty()) {
             Toast
-                .makeText(this, "Debes ingresar tus apellidos para continuar", Toast.LENGTH_SHORT)
+                .makeText(this@ProfileFragment.requireContext(), "Debes ingresar tus apellidos para continuar", Toast.LENGTH_SHORT)
                 .show();
 
             return false;
@@ -170,7 +201,7 @@ class MainRegisterActivity : AppCompatActivity() {
 
         if(userPhoneNumberValue.isEmpty()) {
             Toast
-                .makeText(this, "Debes ingresar tu número de celular para continuar", Toast.LENGTH_SHORT)
+                .makeText(this@ProfileFragment.requireContext(), "Debes ingresar tu número de celular para continuar", Toast.LENGTH_SHORT)
                 .show();
 
             return false;
@@ -178,7 +209,7 @@ class MainRegisterActivity : AppCompatActivity() {
 
         if(userCountryValue.isEmpty()) {
             Toast
-                .makeText(this, "Debes ingresar tu país de origen para continuar", Toast.LENGTH_SHORT)
+                .makeText(this@ProfileFragment.requireContext(), "Debes ingresar tu país de origen para continuar", Toast.LENGTH_SHORT)
                 .show();
 
             return false;
@@ -186,7 +217,7 @@ class MainRegisterActivity : AppCompatActivity() {
 
         if(userCityValue.isEmpty()) {
             Toast
-                .makeText(this, "Debes ingresar tu ciudad de nacimiento para continuar", Toast.LENGTH_SHORT)
+                .makeText(this@ProfileFragment.requireContext(), "Debes ingresar tu ciudad de nacimiento para continuar", Toast.LENGTH_SHORT)
                 .show();
 
             return false;
@@ -196,7 +227,7 @@ class MainRegisterActivity : AppCompatActivity() {
         if(typeInstrustyUserView.text.toString() == "Comerciante") {
             if(userStoreNameValue.isEmpty()) {
                 Toast
-                    .makeText(this, "Debes ingresar el nombre de la tienda para continuar", Toast.LENGTH_SHORT)
+                    .makeText(this@ProfileFragment.requireContext(), "Debes ingresar el nombre de la tienda para continuar", Toast.LENGTH_SHORT)
                     .show();
 
                 return false;
@@ -204,7 +235,7 @@ class MainRegisterActivity : AppCompatActivity() {
 
             if(userStoreNitValue.isEmpty()) {
                 Toast
-                    .makeText(this, "Debes ingresar el NIT de la tienda para continuar", Toast.LENGTH_SHORT)
+                    .makeText(this@ProfileFragment.requireContext(), "Debes ingresar el NIT de la tienda para continuar", Toast.LENGTH_SHORT)
                     .show();
 
                 return false;
@@ -212,7 +243,7 @@ class MainRegisterActivity : AppCompatActivity() {
 
             if(userStoreAddressValue.isEmpty()) {
                 Toast
-                    .makeText(this, "Debes ingresar la dirección de la tienda para continuar", Toast.LENGTH_SHORT)
+                    .makeText(this@ProfileFragment.requireContext(), "Debes ingresar la dirección de la tienda para continuar", Toast.LENGTH_SHORT)
                     .show();
 
                 return false;
@@ -223,7 +254,7 @@ class MainRegisterActivity : AppCompatActivity() {
         if(typeInstrustyUserView.text.toString() == "Artista") {
             if(userNameArtistValue.isEmpty()) {
                 Toast
-                    .makeText(this, "Debes ingresar tu nombre artístico o el de la banda/grupo para continuar", Toast.LENGTH_SHORT)
+                    .makeText(this@ProfileFragment.requireContext(), "Debes ingresar tu nombre artístico o el de la banda/grupo para continuar", Toast.LENGTH_SHORT)
                     .show();
 
                 return false;
@@ -231,7 +262,7 @@ class MainRegisterActivity : AppCompatActivity() {
 
             if(typeGenreIndexSelected == 0) {
                 Toast
-                    .makeText(this, "El género seleccionado no es valido", Toast.LENGTH_SHORT)
+                    .makeText(this@ProfileFragment.requireContext(), "El género seleccionado no es valido", Toast.LENGTH_SHORT)
                     .show();
 
                 return false;
@@ -239,7 +270,7 @@ class MainRegisterActivity : AppCompatActivity() {
 
             if(userArtistBiographyValue.isEmpty()) {
                 Toast
-                    .makeText(this, "Debes ingresar una biografía descriptiva para continuar", Toast.LENGTH_SHORT)
+                    .makeText(this@ProfileFragment.requireContext(), "Debes ingresar una biografía descriptiva para continuar", Toast.LENGTH_SHORT)
                     .show();
 
                 return false;
@@ -267,46 +298,7 @@ class MainRegisterActivity : AppCompatActivity() {
         editor.apply();
 
         Toast
-            .makeText(this, "Registro completado con éxito", Toast.LENGTH_SHORT)
+            .makeText(this@ProfileFragment.requireContext(), "Perfil editado correctamente", Toast.LENGTH_SHORT)
             .show();
-
-        Handler(mainLooper).postDelayed({
-            startActivity(
-                Intent(
-                    this, MainActivity::class.java
-                )
-            );
-            finish();
-        }, 1800)
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-        Log.d("MainRegisterActivity", "onStart: MainRegisterActivity está en segundo plano");
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        Log.d("MainRegisterActivity", "onResume: Entro en onResume");
-    }
-
-    override fun onStop() {
-        super.onStop()
-
-        Log.d("MainRegisterActivity", "onStop: Entro en onStop");
-    }
-
-    override fun onPause() {
-        super.onPause()
-
-        Log.d("MainRegisterActivity", "onPause: Entro en onPause");
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-
-        Log.d("MainRegisterActivity", "onDestroy: Entro en onDestroy");
     }
 }

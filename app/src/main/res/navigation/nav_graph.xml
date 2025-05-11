@@ -9,4 +9,9 @@
         android:id="@+id/homeFragmentOption"
         android:name="com.example.beatnation.fragments.HomeFragment"
         android:label="@string/homeLabelOptionMenu" />
+
+    <fragment
+        android:id="@+id/profileFragmentOption"
+        android:name="com.example.beatnation.fragments.ProfileFragment"
+        android:label="@string/profileLabelOptionMenu" />
 </navigation>

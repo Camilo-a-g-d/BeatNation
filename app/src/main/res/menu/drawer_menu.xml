@@ -4,5 +4,9 @@
     <item
         android:id="@+id/homeFragmentOption"
         android:title="@string/homeLabelOptionMenu" />
+
+    <item
+        android:id="@+id/profileFragmentOption"
+        android:title="@string/profileLabelOptionMenu" />
   </group>
 </menu>

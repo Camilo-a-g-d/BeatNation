@@ -6,12 +6,16 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.beatnation.R
 
 class RegisterTypeIndustryActivity : AppCompatActivity() {
     private lateinit var spinnerSelectTypeIndustry: Spinner;
+    private lateinit var userEmailIndustry: EditText;
+    private lateinit var userPasswordIndustry: EditText;
     private lateinit var btnRegisterUserIndustry: Button;
     private lateinit var sharedPreferences: SharedPreferences;
 
@@ -20,8 +24,10 @@ class RegisterTypeIndustryActivity : AppCompatActivity() {
 
         setContentView(R.layout.register_type_industry_activity);
 
-        // Inicializar almacenamiento temporal
-        sharedPreferences = getSharedPreferences("registerInfo", MODE_PRIVATE);
+        // Inicializar propiedades
+        userEmailIndustry = findViewById(R.id.inputUserEmailIndustry);
+        userPasswordIndustry = findViewById(R.id.inputUserPasswordIndustry);
+        sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
 
         // Configurar selector de tipo de industria
         spinnerSelectTypeIndustry = findViewById(R.id.spinnerTypeIndustry);
@@ -49,11 +55,47 @@ class RegisterTypeIndustryActivity : AppCompatActivity() {
                 editor.apply();
             }
 
-            startActivity(
-                Intent(this, MainRegisterActivity::class.java)
-            )
-            finish();
+            if(validateForm()) {
+                preSaveDataUser();
+            }
         }
+    }
+
+    private fun validateForm(): Boolean {
+        val userEmailFanValue = userEmailIndustry.text.trim();
+        val userPasswordFanValue = userPasswordIndustry.text.trim();
+
+        if(userEmailFanValue.isEmpty()) {
+            Toast
+                .makeText(this, "Debes ingresar el correo electrónico para continuar", Toast.LENGTH_SHORT)
+                .show();
+
+            return false;
+        }
+
+        if(userPasswordFanValue.isEmpty()) {
+            Toast
+                .makeText(this, "Debes ingresar la contraseña para continuar", Toast.LENGTH_SHORT)
+                .show();
+
+            return false;
+        }
+
+        return true;
+    }
+
+    private fun preSaveDataUser() {
+        val editor = sharedPreferences.edit();
+
+        editor.putString("userEmail", userEmailIndustry.text.toString().trim());
+        editor.putString("userPassword", userPasswordIndustry.text.toString().trim());
+
+        editor.apply();
+
+        startActivity(
+            Intent(this, MainRegisterActivity::class.java)
+        );
+        finish();
     }
 
     override fun onStart() {

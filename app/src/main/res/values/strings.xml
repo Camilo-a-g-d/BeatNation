@@ -11,6 +11,7 @@
     <string name="saveLabel">Guardar</string>
     <string name="templateUserImgDesc">Imagen de referencia de usuario</string>
     <string name="templateUserName">Nombre de usuario</string>
+    <string name="noItemSelecedValid">"La opción seleccionada no es valida"</string>
 
     <!-- Strings para activity_join_us -->
     <string name="joinUsLabel">Únete\na\nNosotros</string>
@@ -35,6 +36,7 @@
     <string name="inputUserEmailPlaceholder">Correo electrónico</string>
     <string name="inputPasswordPlaceholder">Contraseña</string>
     <string name="btnLoginLabel">Iniciar sesión</string>
+    <string name="btnLoginWithGoogleLabel">Iniciar sesión con Google</string>
     <string name="resetPasswordLabel">¿Olvidaste tu contraseña?</string>
     <string name="noUserLabel">¿No tienes usuario?, Registrate aquí:</string>
     <string name="btnRegisterLabel">Registrate</string>
@@ -56,6 +58,7 @@
         <item>Comerciante</item>
         <item>Artista</item>
     </string-array>
+    <string name="moreInfoLabelRegister">Información adicional</string>
 
     <!-- Strings para la gestión del perfil de usuario -->
     <string name="customYourProfileLabel">Personaliza tu perfil:</string>
@@ -65,6 +68,26 @@
     <string name="UserPhoneNumberLabels">Celular</string>
     <string name="UserCountryLabels">País</string>
     <string name="UserCityLabels">Ciudad</string>
+    <string name="UserStoreLabel">Nombre de la tienda</string>
+    <string name="UserNitLabel">NIT</string>
+    <string name="UserStoreAddress">Dirección de la tienda</string>
+    <string name="UserNameArtist">Nombre artístico (solista o banda)</string>
+    <string-array name="UserTypeMuscialGenre">
+        <item>Selecciona un género musical</item>
+        <item>Blues</item>
+        <item>Country</item>
+        <item>EDM (Electronic Dance Music)</item>
+        <item>Funk</item>
+        <item>Hip - hop / Rap</item>
+        <item>Jazz</item>
+        <item>K-Pop</item>
+        <item>Música Clásica</item>
+        <item>Pop</item>
+        <item>Reggaetón / Música urbana</item>
+        <item>Rock</item>
+        <item>Ska</item>
+    </string-array>
+    <string name="UserArtistBiography">Biografía</string>
 
     <!-- Strings para el menú y la navegación de la app -->
     <string name="open_drawer">Menú abierto</string>
@@ -72,7 +95,7 @@
     <string name="homeLabelOptionMenu">Inicio</string>
     <string name="profileLabelOptionMenu">Perfil</string>
     
-    <!-- Strings para le home fragment -->
+    <!-- Strings para el home fragment -->
     <string name="exploreYourFavoriteGenres">Explora tus generos favoritos</string>
     <string name="shortDescFatoriteGenres">Sabemos que algunas cosas están revueltas con otras, por eso explora tus géneros favoritos aqui: </string>
     <string name="popLabel">Pop</string>
@@ -83,4 +106,7 @@
     <string name="kpopLabel">K-Pop</string>
     <string name="seeMoreLabel">...</string>
     <string name="seeMoreDesc">Ver más</string>
+
+    <!-- Strings para el perfil fragment -->
+    <string name="editYourProfile">Edita tu perfil:</string>
 </resources>

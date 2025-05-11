@@ -1,5 +1,6 @@
 package com.example.beatnation.activities
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -15,6 +16,7 @@ import com.example.beatnation.R
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
+    // Propiedades del menú de navegación lateral
     private lateinit var navController: NavController;
     private lateinit var appBarConfiguration: AppBarConfiguration;
     private lateinit var drawerLayout: DrawerLayout;

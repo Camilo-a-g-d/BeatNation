@@ -21,7 +21,7 @@ class PreRegisterActivity : AppCompatActivity() {
         setContentView(R.layout.pre_register_activity);
 
         // Inicializar almacenamiento temporal
-        sharedPreferences = getSharedPreferences("registerInfo", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
 
         // Configurar selector de tipo de usuario
         spinnerSelectTypeUser = findViewById(R.id.spinnerSelectTypeUser);
