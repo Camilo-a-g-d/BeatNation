@@ -1,6 +1,6 @@
 package com.example.beatnation.activities
 
-import android.content.SharedPreferences
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -63,6 +63,30 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration);
         navView.setupWithNavController(navController);
+
+        // Listener para los items del menú de navegación
+        navView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.homeFragmentOption -> {
+                    navController.navigate(R.id.homeFragmentOption)
+                }
+                R.id.profileFragmentOption -> {
+                    navController.navigate(R.id.profileFragmentOption)
+                }
+                R.id.storeAddressFragmentOption -> {
+                    navController.navigate(R.id.storeAddressFragmentOption)
+                }
+                R.id.logoutOption -> {
+                    // Simular cierre de sesión: iniciar LoginActivity
+                    val intent = Intent(this, LoginActivity::class.java);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+
+            drawerLayout.closeDrawer(navView)
+            true
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

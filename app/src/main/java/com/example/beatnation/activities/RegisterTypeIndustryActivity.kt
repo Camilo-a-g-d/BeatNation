@@ -17,6 +17,7 @@ class RegisterTypeIndustryActivity : AppCompatActivity() {
     private lateinit var userEmailIndustry: EditText;
     private lateinit var userPasswordIndustry: EditText;
     private lateinit var btnRegisterUserIndustry: Button;
+    private lateinit var btnGoToLogin: Button;
     private lateinit var sharedPreferences: SharedPreferences;
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +29,7 @@ class RegisterTypeIndustryActivity : AppCompatActivity() {
         userEmailIndustry = findViewById(R.id.inputUserEmailIndustry);
         userPasswordIndustry = findViewById(R.id.inputUserPasswordIndustry);
         sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
+        btnGoToLogin = findViewById(R.id.btnGoToLoginFromRegisterIndustry);
 
         // Configurar selector de tipo de industria
         spinnerSelectTypeIndustry = findViewById(R.id.spinnerTypeIndustry);
@@ -41,7 +43,8 @@ class RegisterTypeIndustryActivity : AppCompatActivity() {
         }
 
         btnRegisterUserIndustry = findViewById(R.id.btnRegisterIndustry);
-        btnRegisterUserIndustry.setOnClickListener{
+
+        btnRegisterUserIndustry.setOnClickListener {
             val typeIndustryUserSelected = spinnerSelectTypeIndustry.selectedItem.toString();
             val editor = sharedPreferences.edit();
 
@@ -58,12 +61,19 @@ class RegisterTypeIndustryActivity : AppCompatActivity() {
             if(validateForm()) {
                 preSaveDataUser();
             }
-        }
+        };
+
+        btnGoToLogin.setOnClickListener {
+            startActivity(
+                Intent(this, LoginActivity::class.java)
+            );
+            finish();
+        };
     }
 
     private fun validateForm(): Boolean {
-        val userEmailFanValue = userEmailIndustry.text.trim();
-        val userPasswordFanValue = userPasswordIndustry.text.trim();
+        val userEmailFanValue = userEmailIndustry.text.toString().trim();
+        val userPasswordValue = userPasswordIndustry.text.toString().trim();
 
         if(userEmailFanValue.isEmpty()) {
             Toast
@@ -73,13 +83,21 @@ class RegisterTypeIndustryActivity : AppCompatActivity() {
             return false;
         }
 
-        if(userPasswordFanValue.isEmpty()) {
+        if(userPasswordValue.isEmpty()) {
             Toast
                 .makeText(this, "Debes ingresar la contraseña para continuar", Toast.LENGTH_SHORT)
                 .show();
 
             return false;
         }
+
+//        if(!isValidPassword(userPasswordValue)) {
+//            Toast
+//                .makeText(this, "La contraseña no cumple con los requisitos mínimos", Toast.LENGTH_SHORT)
+//                .show();
+//
+//            return false;
+//        }
 
         return true;
     }
@@ -96,6 +114,11 @@ class RegisterTypeIndustryActivity : AppCompatActivity() {
             Intent(this, MainRegisterActivity::class.java)
         );
         finish();
+    }
+
+    private fun isValidPassword(password: String): Boolean {
+        val passwordPattern = "^(?=(.*[A-Z]){1,})(?=(.*[a-z]){1,})(?=(.*[!@#$%^&*(),.?\":{}|<>]){1,})(?=(.*\\d){3,4}).{10}$".toRegex();
+        return passwordPattern.matches(password);
     }
 
     override fun onStart() {

@@ -7,6 +7,7 @@ import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.beatnation.R
@@ -24,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var btnLogin: Button;
     private lateinit var btnGoToPreRegister: Button;
     private lateinit var btnLoginWithGoogle: Button;
+    private lateinit var resetPasswordLabel: TextView;
     private lateinit var googleSignInClient: GoogleSignInClient;
     private var RC_SIGN_IN = 123;
     private var TAG = "GoogleSignIn";
@@ -41,6 +43,7 @@ class LoginActivity : AppCompatActivity() {
         // Inicializar variables
         inputTextEmail = findViewById(R.id.inputUserEmailLogin);
         inputTextPassword = findViewById(R.id.inputPasswordLogin);
+        resetPasswordLabel = findViewById(R.id.resetPasswordLabel);
         btnLogin = findViewById(R.id.btnLogin);
         btnGoToPreRegister = findViewById(R.id.btnGoToPreRegister);
         btnLoginWithGoogle = findViewById(R.id.btnLoginWithGoogle);
@@ -66,6 +69,13 @@ class LoginActivity : AppCompatActivity() {
         btnGoToPreRegister.setOnClickListener {
             startActivity(
                 Intent(this, PreRegisterActivity::class.java)
+            )
+            finish();
+        };
+
+        resetPasswordLabel.setOnClickListener {
+            startActivity(
+                Intent(this, ForgotPasswordActivity::class.java)
             )
             finish();
         };

@@ -14,6 +14,7 @@ class RegisterFansActivity : AppCompatActivity() {
     private lateinit var userEmailFan: EditText;
     private lateinit var userPasswordFan: EditText
     private lateinit var btnRegisterFan: Button;
+    private lateinit var btnGoToLogin: Button;
     private lateinit var sharedPreferences: SharedPreferences;
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +26,7 @@ class RegisterFansActivity : AppCompatActivity() {
         userEmailFan = findViewById(R.id.inputUserEmailFan);
         userPasswordFan = findViewById(R.id.inputUserPasswordFan);
         btnRegisterFan = findViewById(R.id.btnRegisterFan);
+        btnGoToLogin = findViewById(R.id.btnGoToLoginFromRegisterFan);
         sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
 
         btnRegisterFan.setOnClickListener {
@@ -32,11 +34,18 @@ class RegisterFansActivity : AppCompatActivity() {
               preSaveDataUser();
           }
         };
+
+        btnGoToLogin.setOnClickListener {
+            startActivity(
+                Intent(this, LoginActivity::class.java)
+            );
+            finish();
+        };
     }
 
     private fun validateForm(): Boolean {
-        val userEmailFanValue = userEmailFan.text.trim();
-        val userPasswordFanValue = userPasswordFan.text.trim();
+        val userEmailFanValue = userEmailFan.text.toString().trim();
+        val userPasswordFanValue = userPasswordFan.text.toString().trim();
 
         if(userEmailFanValue.isEmpty()) {
             Toast
@@ -54,6 +63,14 @@ class RegisterFansActivity : AppCompatActivity() {
             return false;
         }
 
+//        if(!isValidPassword(userPasswordFanValue)) {
+//            Toast
+//                .makeText(this, "La contraseña no cumple con los requisitos mínimos", Toast.LENGTH_SHORT)
+//                .show();
+//
+//            return false;
+//        }
+
         return true;
     }
 
@@ -69,6 +86,11 @@ class RegisterFansActivity : AppCompatActivity() {
             Intent(this, MainRegisterActivity::class.java)
         );
         finish();
+    }
+
+    private fun isValidPassword(password: String): Boolean {
+        val passwordPattern = "^(?=(.*[A-Z]){1,})(?=(.*[a-z]){1,})(?=(.*[!@#$%^&*(),.?\":{}|<>]){1,})(?=(.*\\d){3,4}).{10}$".toRegex();
+        return passwordPattern.matches(password);
     }
 
     override fun onStart() {

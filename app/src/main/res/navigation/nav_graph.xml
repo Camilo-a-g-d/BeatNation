@@ -14,4 +14,9 @@
         android:id="@+id/profileFragmentOption"
         android:name="com.example.beatnation.fragments.ProfileFragment"
         android:label="@string/profileLabelOptionMenu" />
+
+    <fragment
+        android:id="@+id/storeAddressFragmentOption"
+        android:name="com.example.beatnation.fragments.StoreAddressessFragment"
+        android:label="@string/storeAddressesLabelOptionMenu" />
 </navigation>

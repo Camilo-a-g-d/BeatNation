@@ -89,11 +89,33 @@
     </string-array>
     <string name="UserArtistBiography">Biografía</string>
 
+    <!-- Strings para el activity de "olvidaste tu contraseña" -->
+    <string name="forgotIconLabel">\?</string>
+    <string name="forgotPasswordDescLabel">Sabemos que recordar cosas son difíciles, por favor ingresa tu correo para recuperar la contraseña</string>
+    <string name="didYouRememberYourPassword">¿Recordaste la contraseña?, inicia Sesión aquí:</string>
+
+    <!-- Strings para el activity de verificación de código al recuperar la contraseña -->
+    <string name="verifyCodeResetPasswordIcon">*</string>
+    <string name="VerifyCodePasswordDescLabel">Ingresa los dígitos del PIN enviados a tu correo, recuerda revisar tu bandeja de SPAM o no deseados</string>
+    <string name="insertPinLabel">Ingresar PIN</string>
+    <string name="verifyUser">Verificación</string>
+
+    <!-- Strings para el activity de cambio de contraseña -->
+    <string name="changePasswordIcon">&#128273;</string>
+    <string name="changePasswordLabel">¡Felicidades, PIN Verificado!</string>
+    <string name="changePasswordDescLabel">Tu código ha sido verificado correctamente, por favor ingresa tu contraseña nueva.</string>
+    <string name="newPasswordLabel">Nueva contraseña</string>
+    <string name="newPasswordFormatDesc">Tu contraseña debe contar con las siguientes condiciones: \n\nLongitud de 10 caracteres \n1 Mayúscula y 1 Minúscula \n1 carácter especial \n3 o 4 números</string>
+    <string name="changePasswordBtn">Cambiar contraseña</string>
+
     <!-- Strings para el menú y la navegación de la app -->
     <string name="open_drawer">Menú abierto</string>
     <string name="close_drawer">Menú cerrado</string>
     <string name="homeLabelOptionMenu">Inicio</string>
     <string name="profileLabelOptionMenu">Perfil</string>
+    <string name="storeAddressesLabelOptionMenu">Puntos físicos</string>
+    <string name="menuActionsLabel">Otros</string>
+    <string name="logoutLabelOptionMenu">Cerrar Sesión</string>
     
     <!-- Strings para el home fragment -->
     <string name="exploreYourFavoriteGenres">Explora tus generos favoritos</string>
@@ -109,4 +131,10 @@
 
     <!-- Strings para el perfil fragment -->
     <string name="editYourProfile">Edita tu perfil:</string>
+
+    <!-- Strings para el fragment de puntos fisicos -->
+    <string name="titleStoreAddresses">Puntos físicos</string>
+    <string name="defaultAddress">RPM Records Bogotá</string>
+    <string name="storeAddressOne">Sin Fronteras Discos</string>
+    <string name="storeAddressTwo">MUSITECA</string>
 </resources>
