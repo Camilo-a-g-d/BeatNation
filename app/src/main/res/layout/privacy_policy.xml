@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    android:id="@+id/privacyPolicyActivity"
+    tools:context=".activities.PrivacyPolicy">
+
+    <TextView
+        android:id="@+id/returnToLoginFromPolicy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="25dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/returnLabel"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/appNameLabelPrivacyPolicyActivity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgAppPrivacyPolicyActivity"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/templateUserImgDesc"
+        app:layout_constraintBottom_toTopOf="@+id/privacyPolicyWebView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/appNameLabelPrivacyPolicyActivity"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_beat_nation" />
+
+    <TextView
+        android:id="@+id/appNameLabelPrivacyPolicyActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/app_name"
+        android:textColor="@color/king_blue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/privacyPolicyWebView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <WebView
+        android:id="@+id/privacyPolicyWebView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appNameLabelPrivacyPolicyActivity" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

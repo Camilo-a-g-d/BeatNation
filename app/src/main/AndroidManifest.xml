@@ -17,7 +17,11 @@
         android:theme="@style/Theme.BeatNation"
         tools:targetApi="31">
 
-
+        <!-- API KEY de Google -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDyGL5-ulkxUtmoHV58020o0pLoTMqa6pw" />
+        <!-- End API KEY de Google -->
 
         <activity
             android:name=".activities.SplashActivity"
@@ -42,6 +46,7 @@
         <activity android:name=".activities.ForgotPasswordActivity"/>
         <activity android:name=".activities.VerifyCodeResetPasswordActivity"/>
         <activity android:name=".activities.ChangePasswordActivity"/>
+        <activity android:name=".activities.PrivacyPolicy"/>
         <activity android:name=".activities.MainActivity"/>
         <meta-data
             android:name="preloaded_fonts"

@@ -32,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
 
     // Propiedades para manejar información de forma local
     private lateinit var sharedPreferences: SharedPreferences;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

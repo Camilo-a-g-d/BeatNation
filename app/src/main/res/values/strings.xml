@@ -12,6 +12,7 @@
     <string name="templateUserImgDesc">Imagen de referencia de usuario</string>
     <string name="templateUserName">Nombre de usuario</string>
     <string name="noItemSelecedValid">"La opción seleccionada no es valida"</string>
+    <string name="returnLabel">Regresar</string>
 
     <!-- Strings para activity_join_us -->
     <string name="joinUsLabel">Únete\na\nNosotros</string>
@@ -137,4 +138,7 @@
     <string name="defaultAddress">RPM Records Bogotá</string>
     <string name="storeAddressOne">Sin Fronteras Discos</string>
     <string name="storeAddressTwo">MUSITECA</string>
+
+    <!-- Strings sobre política de tratamiento de datos -->
+    <string name="dataPolicyLabel">Política de tratamiento de datos</string>
 </resources>
