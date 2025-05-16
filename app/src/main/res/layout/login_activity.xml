@@ -12,7 +12,7 @@
         android:id="@+id/imgAppLogin"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="25dp"
         android:contentDescription="@string/icon_img_alt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -73,6 +73,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputPasswordLogin" />
 
+    <Button
+        android:id="@+id/btnLoginWithGoogle"
+        style="@style/btnSecondary"
+        android:backgroundTint="@color/white"
+        android:layout_width="315dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/btnLoginWithGoogleLabel"
+        app:icon="@drawable/google_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
     <TextView
         android:id="@+id/resetPasswordLabel"
         android:layout_width="wrap_content"
@@ -84,7 +97,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginWithGoogle" />
 
     <View
         android:id="@+id/lineDividerViewLogin"

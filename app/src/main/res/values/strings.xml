@@ -11,6 +11,8 @@
     <string name="saveLabel">Guardar</string>
     <string name="templateUserImgDesc">Imagen de referencia de usuario</string>
     <string name="templateUserName">Nombre de usuario</string>
+    <string name="noItemSelecedValid">"La opción seleccionada no es valida"</string>
+    <string name="returnLabel">Regresar</string>
 
     <!-- Strings para activity_join_us -->
     <string name="joinUsLabel">Únete\na\nNosotros</string>
@@ -35,6 +37,7 @@
     <string name="inputUserEmailPlaceholder">Correo electrónico</string>
     <string name="inputPasswordPlaceholder">Contraseña</string>
     <string name="btnLoginLabel">Iniciar sesión</string>
+    <string name="btnLoginWithGoogleLabel">Iniciar sesión con Google</string>
     <string name="resetPasswordLabel">¿Olvidaste tu contraseña?</string>
     <string name="noUserLabel">¿No tienes usuario?, Registrate aquí:</string>
     <string name="btnRegisterLabel">Registrate</string>
@@ -56,6 +59,7 @@
         <item>Comerciante</item>
         <item>Artista</item>
     </string-array>
+    <string name="moreInfoLabelRegister">Información adicional</string>
 
     <!-- Strings para la gestión del perfil de usuario -->
     <string name="customYourProfileLabel">Personaliza tu perfil:</string>
@@ -65,14 +69,56 @@
     <string name="UserPhoneNumberLabels">Celular</string>
     <string name="UserCountryLabels">País</string>
     <string name="UserCityLabels">Ciudad</string>
+    <string name="UserStoreLabel">Nombre de la tienda</string>
+    <string name="UserNitLabel">NIT</string>
+    <string name="UserStoreAddress">Dirección de la tienda</string>
+    <string name="UserNameArtist">Nombre artístico (solista o banda)</string>
+    <string-array name="UserTypeMuscialGenre">
+        <item>Selecciona un género musical</item>
+        <item>Blues</item>
+        <item>Country</item>
+        <item>EDM (Electronic Dance Music)</item>
+        <item>Funk</item>
+        <item>Hip - hop / Rap</item>
+        <item>Jazz</item>
+        <item>K-Pop</item>
+        <item>Música Clásica</item>
+        <item>Pop</item>
+        <item>Reggaetón / Música urbana</item>
+        <item>Rock</item>
+        <item>Ska</item>
+    </string-array>
+    <string name="UserArtistBiography">Biografía</string>
+
+    <!-- Strings para el activity de "olvidaste tu contraseña" -->
+    <string name="forgotIconLabel">\?</string>
+    <string name="forgotPasswordDescLabel">Sabemos que recordar cosas son difíciles, por favor ingresa tu correo para recuperar la contraseña</string>
+    <string name="didYouRememberYourPassword">¿Recordaste la contraseña?, inicia Sesión aquí:</string>
+
+    <!-- Strings para el activity de verificación de código al recuperar la contraseña -->
+    <string name="verifyCodeResetPasswordIcon">*</string>
+    <string name="VerifyCodePasswordDescLabel">Ingresa los dígitos del PIN enviados a tu correo, recuerda revisar tu bandeja de SPAM o no deseados</string>
+    <string name="insertPinLabel">Ingresar PIN</string>
+    <string name="verifyUser">Verificación</string>
+
+    <!-- Strings para el activity de cambio de contraseña -->
+    <string name="changePasswordIcon">&#128273;</string>
+    <string name="changePasswordLabel">¡Felicidades, PIN Verificado!</string>
+    <string name="changePasswordDescLabel">Tu código ha sido verificado correctamente, por favor ingresa tu contraseña nueva.</string>
+    <string name="newPasswordLabel">Nueva contraseña</string>
+    <string name="newPasswordFormatDesc">Tu contraseña debe contar con las siguientes condiciones: \n\nLongitud de 10 caracteres \n1 Mayúscula y 1 Minúscula \n1 carácter especial \n3 o 4 números</string>
+    <string name="changePasswordBtn">Cambiar contraseña</string>
 
     <!-- Strings para el menú y la navegación de la app -->
     <string name="open_drawer">Menú abierto</string>
     <string name="close_drawer">Menú cerrado</string>
     <string name="homeLabelOptionMenu">Inicio</string>
     <string name="profileLabelOptionMenu">Perfil</string>
+    <string name="storeAddressesLabelOptionMenu">Puntos físicos</string>
+    <string name="menuActionsLabel">Otros</string>
+    <string name="logoutLabelOptionMenu">Cerrar Sesión</string>
     
-    <!-- Strings para le home fragment -->
+    <!-- Strings para el home fragment -->
     <string name="exploreYourFavoriteGenres">Explora tus generos favoritos</string>
     <string name="shortDescFatoriteGenres">Sabemos que algunas cosas están revueltas con otras, por eso explora tus géneros favoritos aqui: </string>
     <string name="popLabel">Pop</string>
@@ -83,4 +129,16 @@
     <string name="kpopLabel">K-Pop</string>
     <string name="seeMoreLabel">...</string>
     <string name="seeMoreDesc">Ver más</string>
+
+    <!-- Strings para el perfil fragment -->
+    <string name="editYourProfile">Edita tu perfil:</string>
+
+    <!-- Strings para el fragment de puntos fisicos -->
+    <string name="titleStoreAddresses">Puntos físicos</string>
+    <string name="defaultAddress">RPM Records Bogotá</string>
+    <string name="storeAddressOne">Sin Fronteras Discos</string>
+    <string name="storeAddressTwo">MUSITECA</string>
+
+    <!-- Strings sobre política de tratamiento de datos -->
+    <string name="dataPolicyLabel">Política de tratamiento de datos</string>
 </resources>

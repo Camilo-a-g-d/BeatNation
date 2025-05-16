@@ -7,12 +7,14 @@ import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.beatnation.R
 
 class PreRegisterActivity : AppCompatActivity() {
     private lateinit var spinnerSelectTypeUser: Spinner;
     private lateinit var btnGoToRegister: Button;
+    private lateinit var privacyPolicyLabel: TextView;
     private lateinit var sharedPreferences: SharedPreferences;
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +22,9 @@ class PreRegisterActivity : AppCompatActivity() {
         
         setContentView(R.layout.pre_register_activity);
 
-        // Inicializar almacenamiento temporal
-        sharedPreferences = getSharedPreferences("registerInfo", MODE_PRIVATE);
+        // Inicializar propiedades
+        sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
+        privacyPolicyLabel = findViewById(R.id.privacyPolicyPreRegister);
 
         // Configurar selector de tipo de usuario
         spinnerSelectTypeUser = findViewById(R.id.spinnerSelectTypeUser);
@@ -57,6 +60,13 @@ class PreRegisterActivity : AppCompatActivity() {
                 finish();
             }
         });
+
+        privacyPolicyLabel.setOnClickListener {
+            startActivity(
+                Intent(this, PrivacyPolicy::class.java)
+            );
+            finish();
+        };
     }
 
     override fun onStart() {

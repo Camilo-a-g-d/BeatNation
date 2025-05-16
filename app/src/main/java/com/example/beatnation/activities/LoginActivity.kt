@@ -5,12 +5,18 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.beatnation.R
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
 
 class LoginActivity : AppCompatActivity() {
     // Propiedades del formulario
@@ -18,38 +24,59 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var inputTextPassword: EditText;
     private lateinit var btnLogin: Button;
     private lateinit var btnGoToPreRegister: Button;
+    private lateinit var btnLoginWithGoogle: Button;
+    private lateinit var resetPasswordLabel: TextView;
+    private lateinit var googleSignInClient: GoogleSignInClient;
+    private var RC_SIGN_IN = 123;
+    private var TAG = "GoogleSignIn";
 
     // Propiedades para manejar información de forma local
     private lateinit var sharedPreferences: SharedPreferences;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.login_activity);
 
         // Inicializar almacenamiento temporal
-        sharedPreferences = getSharedPreferences("UserDataTemp", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
 
         // Inicializar variables
         inputTextEmail = findViewById(R.id.inputUserEmailLogin);
         inputTextPassword = findViewById(R.id.inputPasswordLogin);
+        resetPasswordLabel = findViewById(R.id.resetPasswordLabel);
         btnLogin = findViewById(R.id.btnLogin);
         btnGoToPreRegister = findViewById(R.id.btnGoToPreRegister);
+        btnLoginWithGoogle = findViewById(R.id.btnLoginWithGoogle);
+
+        val GSO = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestEmail()
+            .requestProfile()
+            .build();
+
+        // Crear cliente de Google SigIn
+        googleSignInClient = GoogleSignIn.getClient(this, GSO);
+
+        btnLoginWithGoogle.setOnClickListener {
+            signInWithGoogle();
+        }
 
         btnLogin.setOnClickListener {
-            startActivity(
-                Intent(
-                    this, MainActivity::class.java
-                )
-            );
-            finish();
-            // if(validateForm()) {
-            //     validateUser();
-            // }
+             if(validateForm()) {
+                 validateUser();
+             }
         };
 
         btnGoToPreRegister.setOnClickListener {
             startActivity(
                 Intent(this, PreRegisterActivity::class.java)
+            )
+            finish();
+        };
+
+        resetPasswordLabel.setOnClickListener {
+            startActivity(
+                Intent(this, ForgotPasswordActivity::class.java)
             )
             finish();
         };
@@ -100,30 +127,61 @@ class LoginActivity : AppCompatActivity() {
             return;
         }
 
-        btnLogin.postDelayed({
-            Toast
-                .makeText(this, "Ingresando...", Toast.LENGTH_SHORT)
-                .show();
+        Toast
+            .makeText(this, "Ingresando...", Toast.LENGTH_SHORT)
+            .show();
 
-            // startActivity(
-            //     Intent(this, PerfilActivity::class.java)
-            // )
-            // finish();
+        btnLogin.postDelayed({
+             startActivity(
+                 Intent(this, MainActivity::class.java)
+             )
+             finish();
         }, 2000);
     }
 
-    fun goToRegisterActivity(view: View?) {
-        // startActivity(
-        //     Intent(this, RegisterActivity::class.java)
-        // );
-        // finish();
+    private fun signInWithGoogle() {
+        val signInIntent = googleSignInClient.signInIntent;
+        startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
-    fun goToResetPasswordActivity(view: View?) {
-        // startActivity(
-        //     Intent(this, ResetPasswordActivity::class.java)
-        // );
-        // finish();
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == RC_SIGN_IN) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            handleSignInWithGoogleResult(task);
+        }
+    }
+
+    private fun handleSignInWithGoogleResult(completedTask: Task<GoogleSignInAccount>) {
+        try {
+            val account = completedTask.getResult(ApiException::class.java);
+
+            // Inicio de sesión exitoso
+            Log.d(TAG, "SignIn success: ${account.email}");
+            Toast
+                .makeText(this, "Inicio de sesión con Google exitoso", Toast.LENGTH_SHORT)
+                .show();
+
+            // Ir al MainActivity
+            intent = Intent(this, MainActivity::class.java);
+            intent.putExtra("USER_EMAIL", account.email);
+            intent.putExtra("USER_NAME", account.displayName);
+            startActivity(intent);
+        } catch (e: ApiException) {
+            Log.e(TAG, "signInResult:failed code=${e.statusCode}")
+
+            val mensaje = when(e.statusCode) {
+                10 -> "Error de configuración. Verifica la huella SHA-1."
+                12500 -> "Error con Google Play Services."
+                12501 -> "Inicio de sesión cancelado por el usuario."
+                else -> "Error al iniciar sesión (Código: ${e.statusCode})"
+            }
+
+            Toast
+                .makeText(this, mensaje, Toast.LENGTH_SHORT)
+                .show();
+        }
     }
 
     override fun onStart() {

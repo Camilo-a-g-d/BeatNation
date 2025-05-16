@@ -2,70 +2,43 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/mainRegisterActivity"
     android:background="@color/main_color"
-    tools:context=".activities.EditProfileFanActivity">
+    android:id="@+id/profileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/containerInfoProfile"
         android:padding="15dp">
 
-        <ImageView
-            android:id="@+id/imgAppEditMainRegisterActivity"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:contentDescription="@string/templateUserImgDesc"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo_beat_nation" />
-
         <TextView
-            android:id="@+id/appNameLabelEditMainRegisterActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="42dp"
-            android:fontFamily="@font/montserrat_medium"
-            android:text="@string/app_name"
-            android:textColor="@color/king_blue"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/imgAppEditMainRegisterActivity"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/customYourProfileInEditProfileFan"
+            android:id="@+id/customYourProfileFragmentFan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="40dp"
             android:fontFamily="@font/montserrat_medium"
-            android:text="@string/customYourProfileLabel"
+            android:text="@string/editYourProfile"
             android:textAlignment="center"
             android:textColor="@color/king_blue"
             android:textSize="19sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgAppEditMainRegisterActivity" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imgUserMainRegisterActivity"
+            android:id="@+id/imgUserProfileFragment"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/customYourProfileInEditProfileFan"
+            app:layout_constraintTop_toBottomOf="@+id/customYourProfileFragmentFan"
             app:srcCompat="@drawable/avatar" />
 
         <TextView
-            android:id="@+id/typeInstrustyUser"
+            android:id="@+id/typeInstrustyUserProfileFragment"
             style="@style/editTextRounded"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -73,10 +46,10 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgUserMainRegisterActivity" />
+            app:layout_constraintTop_toBottomOf="@+id/imgUserProfileFragment" />
 
         <EditText
-            android:id="@+id/UserNameInputMainRegisterActivity"
+            android:id="@+id/UserNameInputProfileFragment"
             style="@style/editTextRounded"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -85,10 +58,10 @@
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/typeInstrustyUser" />
+            app:layout_constraintTop_toBottomOf="@+id/typeInstrustyUserProfileFragment" />
 
         <EditText
-            android:id="@+id/UserLastnameMainRegisterActivity"
+            android:id="@+id/UserLastnameProfileFragment"
             style="@style/editTextRounded"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -97,23 +70,23 @@
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/UserNameInputMainRegisterActivity" />
+            app:layout_constraintTop_toBottomOf="@+id/UserNameInputProfileFragment" />
 
         <EditText
-            android:id="@+id/UserEmailMainRegisterActivity"
+            android:id="@+id/UserEmailProfileFragment"
             style="@style/editTextRounded"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:ems="10"
+            android:enabled="false"
             android:hint="@string/UserEmailLabels"
             android:inputType="textEmailAddress"
-            android:enabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/UserLastnameMainRegisterActivity" />
+            app:layout_constraintTop_toBottomOf="@+id/UserLastnameProfileFragment" />
 
         <EditText
-            android:id="@+id/UserPhoneNumberMainRegisterActivity"
+            android:id="@+id/UserPhoneNumberProfileFragment"
             style="@style/editTextRounded"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -122,10 +95,10 @@
             android:inputType="phone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/UserEmailMainRegisterActivity" />
+            app:layout_constraintTop_toBottomOf="@+id/UserEmailProfileFragment" />
 
         <EditText
-            android:id="@+id/UserCountryMainRegisterActivity"
+            android:id="@+id/UserCountryProfileFragment"
             style="@style/editTextRounded"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -134,10 +107,10 @@
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/UserPhoneNumberMainRegisterActivity" />
+            app:layout_constraintTop_toBottomOf="@+id/UserPhoneNumberProfileFragment" />
 
         <EditText
-            android:id="@+id/UserCityMainRegisterActivity"
+            android:id="@+id/UserCityProfileFragment"
             style="@style/editTextRounded"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -146,10 +119,10 @@
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/UserCountryMainRegisterActivity" />
+            app:layout_constraintTop_toBottomOf="@+id/UserCountryProfileFragment" />
 
         <TextView
-            android:id="@+id/moreInfoLabelRegister"
+            android:id="@+id/moreInfoLabelRegisterProfileFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -161,10 +134,10 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/UserCityMainRegisterActivity" />
+            app:layout_constraintTop_toBottomOf="@+id/UserCityProfileFragment" />
 
         <EditText
-            android:id="@+id/UserStoreNameMainRegisterActivity"
+            android:id="@+id/UserStoreNameProfileFragment"
             style="@style/editTextRounded"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -173,10 +146,10 @@
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/moreInfoLabelRegister" />
+            app:layout_constraintTop_toBottomOf="@+id/moreInfoLabelRegisterProfileFragment" />
 
         <EditText
-            android:id="@+id/UserStoreNitMainRegisterActivity"
+            android:id="@+id/UserStoreNitProfileFragment"
             style="@style/editTextRounded"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -185,10 +158,10 @@
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/UserStoreNameMainRegisterActivity" />
+            app:layout_constraintTop_toBottomOf="@+id/UserStoreNameProfileFragment" />
 
         <EditText
-            android:id="@+id/UserStoreAddressMainRegisterActivity"
+            android:id="@+id/UserStoreAddressProfileFragment"
             style="@style/editTextRounded"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -197,10 +170,10 @@
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/UserStoreNitMainRegisterActivity" />
+            app:layout_constraintTop_toBottomOf="@+id/UserStoreNitProfileFragment" />
 
         <EditText
-            android:id="@+id/UserNameArtistMainRegisterActivity"
+            android:id="@+id/UserNameArtistProfileFragment"
             style="@style/editTextRounded"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -209,10 +182,10 @@
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/UserStoreAddressMainRegisterActivity" />
+            app:layout_constraintTop_toBottomOf="@+id/UserStoreAddressProfileFragment" />
 
         <Spinner
-            android:id="@+id/spinnerTypeMuscialGenre"
+            android:id="@+id/spinnerTypeMuscialGenreProfileFragment"
             android:layout_width="310dp"
             android:layout_height="45dp"
             android:layout_marginTop="15dp"
@@ -222,10 +195,10 @@
             android:background="@drawable/spinner_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/UserNameArtistMainRegisterActivity" />
+            app:layout_constraintTop_toBottomOf="@+id/UserNameArtistProfileFragment" />
 
         <EditText
-            android:id="@+id/UserArtistBiographyMainRegisterActivity"
+            android:id="@+id/UserArtistBiographyProfileFragment"
             style="@style/editTextRounded"
             android:gravity="start|top"
             android:layout_height="wrap_content"
@@ -239,10 +212,10 @@
             android:scrollbars="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinnerTypeMuscialGenre" />
+            app:layout_constraintTop_toBottomOf="@+id/spinnerTypeMuscialGenreProfileFragment" />
 
         <Button
-            android:id="@+id/btnContinueMainRegisterActivity"
+            android:id="@+id/btnContinueProfileFragment"
             style="@style/btnPrimaryRounded"
             android:layout_width="315dp"
             android:layout_height="wrap_content"
@@ -250,7 +223,7 @@
             android:text="@string/saveLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/UserArtistBiographyMainRegisterActivity" />
+            app:layout_constraintTop_toBottomOf="@+id/UserArtistBiographyProfileFragment" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

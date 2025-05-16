@@ -6,13 +6,18 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.beatnation.R
 
 class RegisterTypeIndustryActivity : AppCompatActivity() {
     private lateinit var spinnerSelectTypeIndustry: Spinner;
+    private lateinit var userEmailIndustry: EditText;
+    private lateinit var userPasswordIndustry: EditText;
     private lateinit var btnRegisterUserIndustry: Button;
+    private lateinit var btnGoToLogin: Button;
     private lateinit var sharedPreferences: SharedPreferences;
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +25,11 @@ class RegisterTypeIndustryActivity : AppCompatActivity() {
 
         setContentView(R.layout.register_type_industry_activity);
 
-        // Inicializar almacenamiento temporal
-        sharedPreferences = getSharedPreferences("registerInfo", MODE_PRIVATE);
+        // Inicializar propiedades
+        userEmailIndustry = findViewById(R.id.inputUserEmailIndustry);
+        userPasswordIndustry = findViewById(R.id.inputUserPasswordIndustry);
+        sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
+        btnGoToLogin = findViewById(R.id.btnGoToLoginFromRegisterIndustry);
 
         // Configurar selector de tipo de industria
         spinnerSelectTypeIndustry = findViewById(R.id.spinnerTypeIndustry);
@@ -35,7 +43,8 @@ class RegisterTypeIndustryActivity : AppCompatActivity() {
         }
 
         btnRegisterUserIndustry = findViewById(R.id.btnRegisterIndustry);
-        btnRegisterUserIndustry.setOnClickListener{
+
+        btnRegisterUserIndustry.setOnClickListener {
             val typeIndustryUserSelected = spinnerSelectTypeIndustry.selectedItem.toString();
             val editor = sharedPreferences.edit();
 
@@ -49,11 +58,67 @@ class RegisterTypeIndustryActivity : AppCompatActivity() {
                 editor.apply();
             }
 
+            if(validateForm()) {
+                preSaveDataUser();
+            }
+        };
+
+        btnGoToLogin.setOnClickListener {
             startActivity(
-                Intent(this, MainRegisterActivity::class.java)
-            )
+                Intent(this, LoginActivity::class.java)
+            );
             finish();
+        };
+    }
+
+    private fun validateForm(): Boolean {
+        val userEmailFanValue = userEmailIndustry.text.toString().trim();
+        val userPasswordValue = userPasswordIndustry.text.toString().trim();
+
+        if(userEmailFanValue.isEmpty()) {
+            Toast
+                .makeText(this, "Debes ingresar el correo electrónico para continuar", Toast.LENGTH_SHORT)
+                .show();
+
+            return false;
         }
+
+        if(userPasswordValue.isEmpty()) {
+            Toast
+                .makeText(this, "Debes ingresar la contraseña para continuar", Toast.LENGTH_SHORT)
+                .show();
+
+            return false;
+        }
+
+//        if(!isValidPassword(userPasswordValue)) {
+//            Toast
+//                .makeText(this, "La contraseña no cumple con los requisitos mínimos", Toast.LENGTH_SHORT)
+//                .show();
+//
+//            return false;
+//        }
+
+        return true;
+    }
+
+    private fun preSaveDataUser() {
+        val editor = sharedPreferences.edit();
+
+        editor.putString("userEmail", userEmailIndustry.text.toString().trim());
+        editor.putString("userPassword", userPasswordIndustry.text.toString().trim());
+
+        editor.apply();
+
+        startActivity(
+            Intent(this, MainRegisterActivity::class.java)
+        );
+        finish();
+    }
+
+    private fun isValidPassword(password: String): Boolean {
+        val passwordPattern = "^(?=(.*[A-Z]){1,})(?=(.*[a-z]){1,})(?=(.*[!@#$%^&*(),.?\":{}|<>]){1,})(?=(.*\\d){3,4}).{10}$".toRegex();
+        return passwordPattern.matches(password);
     }
 
     override fun onStart() {

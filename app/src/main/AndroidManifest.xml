@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permisos -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BeatNation"
         tools:targetApi="31">
+
+        <!-- API KEY de Google -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDyGL5-ulkxUtmoHV58020o0pLoTMqa6pw" />
+        <!-- End API KEY de Google -->
+
         <activity
             android:name=".activities.SplashActivity"
             android:exported="true">
@@ -32,10 +43,13 @@
         <activity android:name=".activities.RegisterTypeIndustryActivity"/>
         <activity android:name=".activities.ViewProfileFanActivity"/>
         <activity android:name=".activities.MainRegisterActivity"/>
+        <activity android:name=".activities.ForgotPasswordActivity"/>
+        <activity android:name=".activities.VerifyCodeResetPasswordActivity"/>
+        <activity android:name=".activities.ChangePasswordActivity"/>
+        <activity android:name=".activities.PrivacyPolicy"/>
         <activity android:name=".activities.MainActivity"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-
 </manifest>

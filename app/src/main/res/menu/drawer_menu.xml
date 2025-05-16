@@ -4,5 +4,21 @@
     <item
         android:id="@+id/homeFragmentOption"
         android:title="@string/homeLabelOptionMenu" />
+
+    <item
+        android:id="@+id/profileFragmentOption"
+        android:title="@string/profileLabelOptionMenu" />
+
+    <item
+        android:id="@+id/storeAddressFragmentOption"
+        android:title="@string/storeAddressesLabelOptionMenu" />
   </group>
+
+  <item android:title="@string/menuActionsLabel">
+    <menu>
+      <item
+          android:id="@+id/logoutOption"
+          android:title="@string/logoutLabelOptionMenu" />
+    </menu>
+  </item>
 </menu>

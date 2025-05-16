@@ -100,4 +100,19 @@
         app:layout_constraintEnd_toEndOf="@+id/containerMainView"
         app:layout_constraintStart_toStartOf="@+id/containerMainView"
         app:layout_constraintTop_toBottomOf="@+id/spinnerSelectTypeUser" />
+
+    <TextView
+        android:id="@+id/privacyPolicyPreRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/dataPolicyLabel"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/king_blue"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

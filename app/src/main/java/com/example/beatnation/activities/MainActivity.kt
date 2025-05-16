@@ -1,5 +1,6 @@
 package com.example.beatnation.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -15,6 +16,7 @@ import com.example.beatnation.R
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
+    // Propiedades del menú de navegación lateral
     private lateinit var navController: NavController;
     private lateinit var appBarConfiguration: AppBarConfiguration;
     private lateinit var drawerLayout: DrawerLayout;
@@ -61,6 +63,30 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration);
         navView.setupWithNavController(navController);
+
+        // Listener para los items del menú de navegación
+        navView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.homeFragmentOption -> {
+                    navController.navigate(R.id.homeFragmentOption)
+                }
+                R.id.profileFragmentOption -> {
+                    navController.navigate(R.id.profileFragmentOption)
+                }
+                R.id.storeAddressFragmentOption -> {
+                    navController.navigate(R.id.storeAddressFragmentOption)
+                }
+                R.id.logoutOption -> {
+                    // Simular cierre de sesión: iniciar LoginActivity
+                    val intent = Intent(this, LoginActivity::class.java);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+
+            drawerLayout.closeDrawer(navView)
+            true
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
