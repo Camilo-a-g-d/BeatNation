@@ -4,250 +4,281 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_color"
-    android:id="@+id/homeFragmentFile">
+    android:fillViewport="true"
+    android:background="@color/main_color">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerInfoHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/containerInfoHome"
         android:padding="15dp">
 
+        <!-- SLIDER -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/sliderViewPager"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/sliderIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:background="@android:color/transparent"
+            android:minHeight="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sliderViewPager"
+            app:tabGravity="center"
+            app:tabIndicatorColor="@color/black"
+            app:tabIndicatorHeight="2dp"
+            app:tabMode="fixed"
+            app:tabRippleColor="@android:color/transparent"
+            app:tabSelectedTextColor="@color/black"
+            app:tabTextColor="@color/dark_gray" />
+
+        <!-- PERFIL -->
         <ImageView
             android:id="@+id/imgProfileHome"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:layout_marginTop="20dp"
             android:contentDescription="@string/templateUserImgDesc"
             android:src="@drawable/avatar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/sliderIndicator"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/userNameInHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="32dp"
             android:text="@string/templateUserName"
-            android:textAlignment="center"
-            android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/imgProfileHome"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_medium"
+            app:layout_constraintStart_toEndOf="@id/imgProfileHome"
+            app:layout_constraintTop_toBottomOf="@id/sliderIndicator" />
 
+        <!-- TÍTULO GÉNEROS -->
         <TextView
             android:id="@+id/exploreFavoritesGenresLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="30dp"
             android:text="@string/exploreYourFavoriteGenres"
-            android:textAlignment="center"
-            android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgProfileHome" />
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_medium"
+            app:layout_constraintTop_toBottomOf="@id/imgProfileHome"
+            app:layout_constraintStart_toStartOf="parent" />
 
+        <!-- DESCRIPCIÓN -->
         <TextView
             android:id="@+id/descExploreFavoriteGenres"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
-            android:fontFamily="@font/montserrat_medium"
             android:text="@string/shortDescFatoriteGenres"
-            android:textAlignment="center"
             android:textSize="15sp"
+            android:fontFamily="@font/montserrat_medium"
+            app:layout_constraintTop_toBottomOf="@id/exploreFavoritesGenresLabel"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/exploreFavoritesGenresLabel" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/popImgHome"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="15dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/pop_genre"
-            app:shapeAppearance="@style/roundedImageStyle"
+        <!--  GÉNEROS -->
+        <GridLayout
+            android:id="@+id/genreGrid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:layout_marginTop="20dp"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false"
+            android:padding="4dp"
+            app:layout_constraintTop_toBottomOf="@id/descExploreFavoriteGenres"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/descExploreFavoriteGenres" />
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView
-            android:id="@+id/popLabelHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/popLabel"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/popImgHome"
-            app:layout_constraintStart_toStartOf="@+id/popImgHome"
-            app:layout_constraintTop_toBottomOf="@+id/popImgHome" />
+            <!-- Botón 1 - Pop -->
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/rapImgHome"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="15dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/rap_genre"
-            app:shapeAppearance="@style/roundedImageStyle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/descExploreFavoriteGenres" />
+            <LinearLayout
+                android:id="@+id/popBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/btn_primary_style"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-        <TextView
-            android:id="@+id/rapLabelHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/rapLabel"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/rapImgHome"
-            app:layout_constraintStart_toStartOf="@+id/rapImgHome"
-            app:layout_constraintTop_toBottomOf="@+id/rapImgHome" />
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/baseline_music_note_24"
+                    app:tint="@color/dark_gray" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/rockImgHome"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="15dp"
-            android:src="@drawable/rock_genre"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/popLabelHome"
-            app:shapeAppearance="@style/roundedImageStyle" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/popLabel"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <!-- Botón 2 - Rap -->
+            <LinearLayout
+                android:id="@+id/rapBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/btn_primary_style"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-        <TextView
-            android:id="@+id/rockLabelHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/rockLabel"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/rockImgHome"
-            app:layout_constraintStart_toStartOf="@+id/rockImgHome"
-            app:layout_constraintTop_toBottomOf="@+id/rockImgHome" />
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/baseline_music_note_24"
+                    app:tint="@color/dark_gray" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/edmImgHome"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="15dp"
-            android:src="@drawable/edm_genre"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rapLabelHome"
-            app:shapeAppearance="@style/roundedImageStyle" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/rapLabel"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <!-- Botón 3 - Rock -->
+            <LinearLayout
+                android:id="@+id/rockBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/btn_primary_style"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-        <TextView
-            android:id="@+id/edmLabelHome"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/edmLabel"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/edmImgHome"
-            app:layout_constraintStart_toStartOf="@+id/edmImgHome"
-            app:layout_constraintTop_toBottomOf="@+id/edmImgHome" />
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/baseline_music_note_24"
+                    app:tint="@color/dark_gray" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/reggaetonImgHome"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="15dp"
-            android:src="@drawable/reggaeton_genre"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rockLabelHome"
-            app:shapeAppearance="@style/roundedImageStyle" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/rockLabel"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/reggaetonLabelHome"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/reggaetonLabel"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/reggaetonImgHome"
-            app:layout_constraintStart_toStartOf="@+id/reggaetonImgHome"
-            app:layout_constraintTop_toBottomOf="@+id/reggaetonImgHome" />
+            <!-- Botón 4 - EDM -->
+            <LinearLayout
+                android:id="@+id/edmBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/btn_primary_style"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/kpopImgHome"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/kk_pop_genre"
-            app:shapeAppearance="@style/roundedImageStyle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edmLabelHome" />
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/baseline_music_note_24"
+                    app:tint="@color/dark_gray" />
 
-        <TextView
-            android:id="@+id/kpopLabelHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/kpopLabel"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/kpopImgHome"
-            app:layout_constraintStart_toStartOf="@+id/kpopImgHome"
-            app:layout_constraintTop_toBottomOf="@+id/kpopImgHome" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/edmLabel"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/seeMoreImgHome"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="60dp"
-            android:src="@drawable/dark_grey_shape"
-            app:shapeAppearance="@style/roundedImageStyle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/kpopImgHome" />
+            <!-- Botón 5 - Urbano  -->
+            <LinearLayout
+                android:id="@+id/reggaetonBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/btn_primary_style"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-        <TextView
-            android:id="@+id/seeMoreLabelDotsHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/seeMoreLabel"
-            android:textAlignment="center"
-            android:textSize="80sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@id/seeMoreImgHome"
-            app:layout_constraintStart_toStartOf="@id/seeMoreImgHome"
-            app:layout_constraintTop_toTopOf="@+id/seeMoreImgHome" />
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/baseline_music_note_24"
+                    app:tint="@color/dark_gray" />
 
-        <TextView
-            android:id="@+id/seeMoreLabelHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/seeMoreDesc"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/seeMoreImgHome"
-            app:layout_constraintStart_toStartOf="@+id/seeMoreImgHome"
-            app:layout_constraintTop_toBottomOf="@+id/seeMoreImgHome" />
-        
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/reggaetonLabel"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <!-- Botón 6 - kpop -->
+            <LinearLayout
+                android:id="@+id/kpopBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/btn_primary_style"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/baseline_music_note_24"
+                    app:tint="@color/dark_gray" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/kpopLabel"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </GridLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
