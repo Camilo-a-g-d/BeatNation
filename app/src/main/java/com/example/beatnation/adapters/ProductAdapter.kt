@@ -1,6 +1,7 @@
 package com.example.beatnation.adapters
 
 import android.view.LayoutInflater
+import com.example.beatnation.utils.CartManager
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -33,12 +34,14 @@ class ProductAdapter(private val productList: List<Product>) :
         holder.price.text = "$ ${String.format("%,.0f", product.price)}"
 
         holder.button.setOnClickListener {
+            CartManager.addProduct(product)
             Toast.makeText(
                 holder.itemView.context,
-                "Agregado: ${product.name}",
+                "${product.name} agregado al carrito 🛒",
                 Toast.LENGTH_SHORT
             ).show()
         }
+
     }
 
     override fun getItemCount(): Int = productList.size
