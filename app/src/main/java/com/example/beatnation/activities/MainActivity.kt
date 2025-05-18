@@ -94,6 +94,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.cartFragmentOption -> {
                     navController.navigate(R.id.cartFragmentOption)
                 }
+                R.id.purchaseStatusFragment -> navController.navigate(R.id.purchaseStatusFragment)
                 R.id.logoutOption -> {
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)

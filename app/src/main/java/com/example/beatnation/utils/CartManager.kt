@@ -16,4 +16,9 @@ object CartManager {
     fun clearCart() {
         cartItems.clear()
     }
+
+    fun removeProduct(product: Product) {
+        cartItems.remove(product)
+    }
+
 }
