@@ -8,13 +8,19 @@
     <fragment
         android:id="@+id/homeFragmentOption"
         android:name="com.example.beatnation.fragments.HomeFragment"
-        android:label="Inicio"
+        android:label="@string/homeLabelOptionMenu"
         tools:layout="@layout/home_fragment">
 
         <action
             android:id="@+id/action_home_to_genreDetailFragment"
             app:destination="@id/genreDetailFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/homeProductsFragmentOption"
+        android:name="com.example.beatnation.fragments.HomeProductsFragment"
+        android:label="@string/homeProductsLabelOptionMenu"
+        tools:layout="@layout/home_products_fragment" />
 
     <fragment
         android:id="@+id/profileFragmentOption"

@@ -1,5 +1,6 @@
 package com.example.beatnation.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import com.example.beatnation.utils.CartManager
 import android.view.View
@@ -28,6 +29,9 @@ class ProductAdapter(private val productList: List<Product>) :
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = productList[position]
+
+        Log.d("ProductAdapter", "Binding product at position $position: ${product.name}")
+
         holder.image.setImageResource(product.imageResId)
         holder.name.text = product.name
         holder.rating.text = "${product.rating} DE CALIFICACIONES"
@@ -41,7 +45,6 @@ class ProductAdapter(private val productList: List<Product>) :
                 Toast.LENGTH_SHORT
             ).show()
         }
-
     }
 
     override fun getItemCount(): Int = productList.size

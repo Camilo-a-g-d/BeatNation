@@ -1,6 +1,7 @@
 package com.example.beatnation.activities
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -22,11 +23,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout;
     private lateinit var toolbar: Toolbar;
     private lateinit var drawerToggle: ActionBarDrawerToggle;
+    private lateinit var sharedPreferences: SharedPreferences;
+    private lateinit var navView: NavigationView;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
 
         // Inicializar toolbar
         toolbar = findViewById(R.id.mainToolBar);
@@ -64,11 +69,27 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration);
         navView.setupWithNavController(navController);
 
+        // Ajustar el menú y la navegación inicial según el tipo de usuario
+        val typeUser = sharedPreferences.getString("typeUser", "");
+        val homeProductsItem = navView.menu.findItem(R.id.homeProductsFragmentOption);
+
+        if (typeUser == "Industria") {
+            homeProductsItem.isVisible = true;
+            // Si es artista o comerciante, iniciar en HomeProductsFragment
+            navController.navigate(R.id.homeProductsFragmentOption);
+        } else {
+            homeProductsItem.isVisible = false;
+            // Si es fan, iniciar en HomeFragment (ya configurado como startDestination en nav_graph)
+        }
+
         // Listener para los items del menú de navegación
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.homeFragmentOption -> {
                     navController.navigate(R.id.homeFragmentOption)
+                }
+                R.id.homeProductsFragmentOption -> {
+                    navController.navigate(R.id.homeProductsFragmentOption)
                 }
                 R.id.profileFragmentOption -> {
                     navController.navigate(R.id.profileFragmentOption)

@@ -7,6 +7,11 @@
         android:title="@string/homeLabelOptionMenu" />
 
     <item
+        android:id="@+id/homeProductsFragmentOption"
+        android:title="@string/homeProductsLabelOptionMenu"
+        android:visible="false" />
+
+    <item
         android:id="@+id/profileFragmentOption"
         android:title="@string/profileLabelOptionMenu" />
 
