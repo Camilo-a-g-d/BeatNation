@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/main_color"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--  Banner superior -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/categoryBanner"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/banner_ropa"
+        app:shapeAppearanceOverlay="@style/RoundedProductImageStyle"
+        android:layout_marginBottom="16dp" />
+
+        <!-- 🏷 Título de categoría -->
+        <TextView
+            android:id="@+id/categoryTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Productos de Ropa"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginBottom="6dp"
+            android:textColor="@color/black" />
+
+        <!--  Descripción de la categoría -->
+        <TextView
+            android:id="@+id/categoryDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Explora prendas de vestir con estilo urbano, comodidad y esencia artística para todos los gustos."
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="@color/dark_gray"
+            android:layout_marginBottom="16dp" />
+
+        <!--  Productos -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerCategoryProducts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:nestedScrollingEnabled="false" />
+    </LinearLayout>
+</ScrollView>

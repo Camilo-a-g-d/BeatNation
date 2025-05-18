@@ -76,17 +76,35 @@ class MainActivity : AppCompatActivity() {
                 R.id.storeAddressFragmentOption -> {
                     navController.navigate(R.id.storeAddressFragmentOption)
                 }
+                R.id.categoryClothingFragmentOption -> {
+                    navController.navigate(R.id.categoryClothingFragmentOption)
+                }
+                R.id.categoryInstrumentsFragmentOption -> {
+                    navController.navigate(R.id.categoryInstrumentsFragmentOption)
+                }
+                R.id.categoryAccessoriesFragmentOption -> {
+                    navController.navigate(R.id.categoryAccessoriesFragmentOption)
+                }
+                R.id.categoryMakeupFragmentOption -> {
+                    navController.navigate(R.id.categoryMakeupFragmentOption)
+                }
+                R.id.categoryPostersFragmentOption -> {
+                    navController.navigate(R.id.categoryPostersFragmentOption)
+                }
+                R.id.cartFragmentOption -> {
+                    navController.navigate(R.id.cartFragmentOption)
+                }
                 R.id.logoutOption -> {
-                    // Simular cierre de sesión: iniciar LoginActivity
-                    val intent = Intent(this, LoginActivity::class.java);
-                    startActivity(intent);
-                    finish();
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 }
             }
 
             drawerLayout.closeDrawer(navView)
             true
         }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

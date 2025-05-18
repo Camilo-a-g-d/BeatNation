@@ -36,4 +36,41 @@
             android:defaultValue="Pop"
             app:argType="string" />
     </fragment>
+
+    <fragment
+        android:id="@+id/categoryClothingFragmentOption"
+        android:name="com.example.beatnation.fragments.CategoryClothingFragment"
+        android:label="Ropa"
+        tools:layout="@layout/fragment_category_clothing" />
+
+    <fragment
+        android:id="@+id/categoryInstrumentsFragmentOption"
+        android:name="com.example.beatnation.fragments.CategoryInstrumentsFragment"
+        android:label="Instrumentos"
+        tools:layout="@layout/fragment_category_instruments" />
+
+    <fragment
+        android:id="@+id/categoryAccessoriesFragmentOption"
+        android:name="com.example.beatnation.fragments.CategoryAccessoriesFragment"
+        android:label="Accesorios"
+        tools:layout="@layout/fragment_category_accessories" />
+
+    <fragment
+        android:id="@+id/categoryMakeupFragmentOption"
+        android:name="com.example.beatnation.fragments.CategoryMakeupFragment"
+        android:label="Maquillaje"
+        tools:layout="@layout/fragment_category_makeup" />
+
+    <fragment
+        android:id="@+id/categoryPostersFragmentOption"
+        android:name="com.example.beatnation.fragments.CategoryPostersFragment"
+        android:label="Posters"
+        tools:layout="@layout/fragment_category_posters" />
+
+    <fragment
+        android:id="@+id/cartFragmentOption"
+        android:name="com.example.beatnation.fragments.CartFragment"
+        android:label="Carrito de Compras"
+        tools:layout="@layout/fragment_cart" />
+
 </navigation>
