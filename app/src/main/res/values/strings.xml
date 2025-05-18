@@ -115,6 +115,7 @@
     <string name="homeLabelOptionMenu">Inicio</string>
     <string name="profileLabelOptionMenu">Perfil</string>
     <string name="storeAddressesLabelOptionMenu">Puntos físicos</string>
+    <string name="homeProductsLabelOptionMenu">Productos registrados</string>
     <string name="menuActionsLabel">Otros</string>
     <string name="logoutLabelOptionMenu">Cerrar Sesión</string>
 
@@ -148,4 +149,8 @@
     <string name="slide2">Lo nuevo de tus artistas favoritos</string>
     <string name="slide3">Ofertas en merch exclusiva</string>
     <string name="slide4">Todo el marketing que tu emprendimiento necesita</string>
+
+    <!-- Strings para HomeProductsFragment -->
+    <string name="regiseredProductsLabel">Productos registrados</string>
+    <string name="addProduct">+</string>
 </resources>
