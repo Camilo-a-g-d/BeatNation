@@ -42,6 +42,9 @@
     <item
         android:id="@+id/cartFragmentOption"
         android:title="Carrito de compras" />
+    <item
+        android:id="@+id/purchaseStatusFragment"
+        android:title="Estado de la Compra" />
   </group>
 
   <item android:title="@string/menuActionsLabel">

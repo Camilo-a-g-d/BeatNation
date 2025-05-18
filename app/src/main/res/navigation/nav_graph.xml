@@ -79,4 +79,10 @@
         android:label="Carrito de Compras"
         tools:layout="@layout/fragment_cart" />
 
+    <fragment
+        android:id="@+id/purchaseStatusFragment"
+        android:name="com.example.beatnation.fragments.PurchaseStatusFragment"
+        android:label="Estado de la compra"
+        tools:layout="@layout/fragment_purchase_status" />
+
 </navigation>
