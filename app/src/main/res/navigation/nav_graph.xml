@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragmentOption">
 
     <fragment
         android:id="@+id/homeFragmentOption"
         android:name="com.example.beatnation.fragments.HomeFragment"
-        android:label="@string/homeLabelOptionMenu" />
+        android:label="Inicio"
+        tools:layout="@layout/home_fragment">
+
+        <action
+            android:id="@+id/action_home_to_genreDetailFragment"
+            app:destination="@id/genreDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/profileFragmentOption"
@@ -19,4 +25,15 @@
         android:id="@+id/storeAddressFragmentOption"
         android:name="com.example.beatnation.fragments.StoreAddressessFragment"
         android:label="@string/storeAddressesLabelOptionMenu" />
+
+    <fragment
+        android:id="@+id/genreDetailFragment"
+        android:name="com.example.beatnation.fragments.GenreDetailFragment"
+        android:label="Detalle Género"
+        tools:layout="@layout/fragment_genre_detail">
+        <argument
+            android:name="genre"
+            android:defaultValue="Pop"
+            app:argType="string" />
+    </fragment>
 </navigation>
