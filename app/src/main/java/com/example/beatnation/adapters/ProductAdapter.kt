@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.beatnation.R
 import com.example.beatnation.model.Product
 
-class ProductAdapter(private val productList: List<Product>) :
+class ProductAdapter(private val productList: List<Product>, private val fromFragment: String = "") :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     inner class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -28,22 +28,28 @@ class ProductAdapter(private val productList: List<Product>) :
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        val product = productList[position]
+        val product = productList[position];
 
-        Log.d("ProductAdapter", "Binding product at position $position: ${product.name}")
+        Log.d("ProductAdapter", "Binding product at position $position: ${product.name}");
 
-        holder.image.setImageResource(product.imageResId)
-        holder.name.text = product.name
-        holder.rating.text = "${product.rating} DE CALIFICACIONES"
-        holder.price.text = "$ ${String.format("%,.0f", product.price)}"
+        holder.image.setImageResource(product.imageResId);
+        holder.name.text = product.name;
+        holder.rating.text = "${product.rating} DE CALIFICACIONES";
+        holder.price.text = "$ ${String.format("%,.0f", product.price)}";
+
+        if (fromFragment == "HomeProductsFragment") {
+            holder.button.visibility = View.GONE;
+        } else {
+            holder.button.visibility = View.VISIBLE;
+        }
 
         holder.button.setOnClickListener {
-            CartManager.addProduct(product)
+            CartManager.addProduct(product);
             Toast.makeText(
                 holder.itemView.context,
                 "${product.name} agregado al carrito 🛒",
                 Toast.LENGTH_SHORT
-            ).show()
+            ).show();
         }
     }
 

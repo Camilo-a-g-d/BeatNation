@@ -72,14 +72,13 @@ class MainActivity : AppCompatActivity() {
         // Ajustar el menú y la navegación inicial según el tipo de usuario
         val typeUser = sharedPreferences.getString("typeUser", "");
         val homeProductsItem = navView.menu.findItem(R.id.homeProductsFragmentOption);
+//        homeProductsItem.isVisible = false;
 
         if (typeUser == "Industria") {
             homeProductsItem.isVisible = true;
-            // Si es artista o comerciante, iniciar en HomeProductsFragment
             navController.navigate(R.id.homeProductsFragmentOption);
         } else {
             homeProductsItem.isVisible = false;
-            // Si es fan, iniciar en HomeFragment (ya configurado como startDestination en nav_graph)
         }
 
         // Listener para los items del menú de navegación

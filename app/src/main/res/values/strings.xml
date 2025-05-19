@@ -153,4 +153,10 @@
     <!-- Strings para HomeProductsFragment -->
     <string name="regiseredProductsLabel">Productos registrados</string>
     <string name="addProduct">+</string>
+
+    <!-- Strings para CreateProductFragment -->
+    <string name="createProductLabel">Crear producto</string>
+    <string name="nameNewProductPlaceholder">Nombre del producto</string>
+    <string name="priceNewProductPlaceholder">Precio del producto</string>
+    <string name="ratingNewProductPlaceholder">Rating del producto</string>
 </resources>

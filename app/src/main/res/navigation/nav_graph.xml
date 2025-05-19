@@ -85,4 +85,10 @@
         android:label="Estado de la compra"
         tools:layout="@layout/fragment_purchase_status" />
 
+    <fragment
+        android:id="@+id/createNewProductFragment"
+        android:name="com.example.beatnation.fragments.CreateProductoFragment"
+        android:label="@string/createProductLabel"
+        tools:layout="@layout/create_product_fragment" />
+
 </navigation>

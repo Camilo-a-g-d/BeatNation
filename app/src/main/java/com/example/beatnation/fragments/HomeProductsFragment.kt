@@ -6,19 +6,25 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity.MODE_PRIVATE
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.beatnation.R
 import com.example.beatnation.adapters.ProductAdapter
-import com.example.beatnation.model.Product
+import com.example.beatnation.model.ProductViewModel
 
 class HomeProductsFragment : Fragment() {
     // Propiedades
     private lateinit var sharedPreferences: SharedPreferences;
     private lateinit var userNameInHomeProducts: TextView;
+    private lateinit var btnGoToCreateProduct: Button;
+    private val productViewModel: ProductViewModel by activityViewModels();
+    private lateinit var adapter: ProductAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,6 +41,7 @@ class HomeProductsFragment : Fragment() {
         // Inicializar propiedades
         sharedPreferences = this.requireContext().getSharedPreferences("userInfo", MODE_PRIVATE);
         userNameInHomeProducts = view.findViewById(R.id.userNameInHomeProducts);
+        btnGoToCreateProduct = view.findViewById(R.id.addNewProduct);
         userNameInHomeProducts.setText("${sharedPreferences.getString("userName", "")} (${sharedPreferences.getString("userStoreName", "")})")
 
         Log.d("HomeProductsFragment", "Vista creada correctamente");
@@ -42,12 +49,17 @@ class HomeProductsFragment : Fragment() {
         val productsRecyclerView = view.findViewById<RecyclerView>(R.id.productsRecyclerViewHomeProducts);
         productsRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2);
 
-        // Listado de productos iniciales
-        val productList  = listOf(
-            Product("Guitarra Eléctrica Vintage", 450000.0, 4.8, R.drawable.product_guitarra),
-            Product("Camiseta Banda Rock", 60000.0, 4.6, R.drawable.product_camiseta)
-        );
+        adapter = ProductAdapter(emptyList());
+        productsRecyclerView.adapter = adapter;
 
-        productsRecyclerView.adapter = ProductAdapter(productList);
+        // Observa los cambios en la lista de productos del ViewModel
+        productViewModel.products.observe(viewLifecycleOwner) { productList ->
+            adapter = ProductAdapter(productList, "HomeProductsFragment");
+            productsRecyclerView.adapter = adapter
+        }
+
+        btnGoToCreateProduct.setOnClickListener {
+            findNavController().navigate(R.id.createNewProductFragment);
+        }
     }
 }
