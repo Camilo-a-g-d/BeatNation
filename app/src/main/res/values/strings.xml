@@ -115,17 +115,19 @@
     <string name="homeLabelOptionMenu">Inicio</string>
     <string name="profileLabelOptionMenu">Perfil</string>
     <string name="storeAddressesLabelOptionMenu">Puntos físicos</string>
+    <string name="homeProductsLabelOptionMenu">Productos registrados</string>
     <string name="menuActionsLabel">Otros</string>
     <string name="logoutLabelOptionMenu">Cerrar Sesión</string>
-    
-    <!-- Strings para el home fragment -->
+
+    <!-- Strings para le home fragment -->
+    <string name="Tours">Tours</string>
     <string name="exploreYourFavoriteGenres">Explora tus generos favoritos</string>
     <string name="shortDescFatoriteGenres">Sabemos que algunas cosas están revueltas con otras, por eso explora tus géneros favoritos aqui: </string>
     <string name="popLabel">Pop</string>
-    <string name="rapLabel">Hip-hoo / Rap</string>
+    <string name="rapLabel">Hip-hop / Rap</string>
     <string name="rockLabel">Rock</string>
     <string name="edmLabel">EDM (Electronic Dance Music)</string>
-    <string name="reggaetonLabel">Reggaetón / Música urbana</string>
+    <string name="reggaetonLabel">Música urbana</string>
     <string name="kpopLabel">K-Pop</string>
     <string name="seeMoreLabel">...</string>
     <string name="seeMoreDesc">Ver más</string>
@@ -141,4 +143,20 @@
 
     <!-- Strings sobre política de tratamiento de datos -->
     <string name="dataPolicyLabel">Política de tratamiento de datos</string>
+
+    <!-- Strings para el slider home fragment -->
+    <string name="slide1">Prepárate para el ROT</string>
+    <string name="slide2">Lo nuevo de tus artistas favoritos</string>
+    <string name="slide3">Ofertas en merch exclusiva</string>
+    <string name="slide4">Todo el marketing que tu emprendimiento necesita</string>
+
+    <!-- Strings para HomeProductsFragment -->
+    <string name="regiseredProductsLabel">Productos registrados</string>
+    <string name="addProduct">+</string>
+
+    <!-- Strings para CreateProductFragment -->
+    <string name="createProductLabel">Crear producto</string>
+    <string name="nameNewProductPlaceholder">Nombre del producto</string>
+    <string name="priceNewProductPlaceholder">Precio del producto</string>
+    <string name="ratingNewProductPlaceholder">Rating del producto</string>
 </resources>

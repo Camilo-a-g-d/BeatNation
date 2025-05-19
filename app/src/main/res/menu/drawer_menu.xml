@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
   <group android:checkableBehavior="single">
     <item
         android:id="@+id/homeFragmentOption"
         android:title="@string/homeLabelOptionMenu" />
+
+    <item
+        android:id="@+id/homeProductsFragmentOption"
+        android:title="@string/homeProductsLabelOptionMenu"
+        android:visible="false" />
 
     <item
         android:id="@+id/profileFragmentOption"
@@ -12,6 +18,33 @@
     <item
         android:id="@+id/storeAddressFragmentOption"
         android:title="@string/storeAddressesLabelOptionMenu" />
+
+    <item
+        android:id="@+id/categoryClothingFragmentOption"
+        android:title="Ropa" />
+
+    <item
+        android:id="@+id/categoryInstrumentsFragmentOption"
+        android:title="Instrumentos" />
+
+    <item
+        android:id="@+id/categoryAccessoriesFragmentOption"
+        android:title="Accesorios" />
+
+    <item
+        android:id="@+id/categoryMakeupFragmentOption"
+        android:title="Maquillaje" />
+
+    <item
+        android:id="@+id/categoryPostersFragmentOption"
+        android:title="Posters" />
+
+    <item
+        android:id="@+id/cartFragmentOption"
+        android:title="Carrito de compras" />
+    <item
+        android:id="@+id/purchaseStatusFragment"
+        android:title="Estado de la Compra" />
   </group>
 
   <item android:title="@string/menuActionsLabel">

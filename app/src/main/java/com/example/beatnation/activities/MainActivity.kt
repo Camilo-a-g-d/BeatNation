@@ -1,6 +1,7 @@
 package com.example.beatnation.activities
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -22,11 +23,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout;
     private lateinit var toolbar: Toolbar;
     private lateinit var drawerToggle: ActionBarDrawerToggle;
+    private lateinit var sharedPreferences: SharedPreferences;
+    private lateinit var navView: NavigationView;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
 
         // Inicializar toolbar
         toolbar = findViewById(R.id.mainToolBar);
@@ -64,11 +69,26 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration);
         navView.setupWithNavController(navController);
 
+        // Ajustar el menú y la navegación inicial según el tipo de usuario
+        val typeUser = sharedPreferences.getString("typeUser", "");
+        val homeProductsItem = navView.menu.findItem(R.id.homeProductsFragmentOption);
+//        homeProductsItem.isVisible = false;
+
+        if (typeUser == "Industria") {
+            homeProductsItem.isVisible = true;
+            navController.navigate(R.id.homeProductsFragmentOption);
+        } else {
+            homeProductsItem.isVisible = false;
+        }
+
         // Listener para los items del menú de navegación
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.homeFragmentOption -> {
                     navController.navigate(R.id.homeFragmentOption)
+                }
+                R.id.homeProductsFragmentOption -> {
+                    navController.navigate(R.id.homeProductsFragmentOption)
                 }
                 R.id.profileFragmentOption -> {
                     navController.navigate(R.id.profileFragmentOption)
@@ -76,17 +96,36 @@ class MainActivity : AppCompatActivity() {
                 R.id.storeAddressFragmentOption -> {
                     navController.navigate(R.id.storeAddressFragmentOption)
                 }
+                R.id.categoryClothingFragmentOption -> {
+                    navController.navigate(R.id.categoryClothingFragmentOption)
+                }
+                R.id.categoryInstrumentsFragmentOption -> {
+                    navController.navigate(R.id.categoryInstrumentsFragmentOption)
+                }
+                R.id.categoryAccessoriesFragmentOption -> {
+                    navController.navigate(R.id.categoryAccessoriesFragmentOption)
+                }
+                R.id.categoryMakeupFragmentOption -> {
+                    navController.navigate(R.id.categoryMakeupFragmentOption)
+                }
+                R.id.categoryPostersFragmentOption -> {
+                    navController.navigate(R.id.categoryPostersFragmentOption)
+                }
+                R.id.cartFragmentOption -> {
+                    navController.navigate(R.id.cartFragmentOption)
+                }
+                R.id.purchaseStatusFragment -> navController.navigate(R.id.purchaseStatusFragment)
                 R.id.logoutOption -> {
-                    // Simular cierre de sesión: iniciar LoginActivity
-                    val intent = Intent(this, LoginActivity::class.java);
-                    startActivity(intent);
-                    finish();
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 }
             }
 
             drawerLayout.closeDrawer(navView)
             true
         }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
